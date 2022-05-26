@@ -6,5 +6,6 @@ target 'Ethereum Wallet' do
   use_frameworks!
 
   # Pods for Ethereum Wallet
+  pod 'MnemonicSwift'
   pod 'HDWalletKit'
 end
