@@ -8,4 +8,5 @@ target 'Ethereum Wallet' do
   # Pods for Ethereum Wallet
   pod 'MnemonicSwift'
   pod 'HDWalletKit'
+  pod 'web3swift'
 end
