@@ -9,4 +9,5 @@ target 'Ethereum Wallet' do
   pod 'MnemonicSwift'
   pod 'HDWalletKit'
   pod 'web3swift'
+  pod 'SwiftKeychainWrapper', '~> 3.4.0'
 end
