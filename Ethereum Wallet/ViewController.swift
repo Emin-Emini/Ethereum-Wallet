@@ -15,6 +15,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+    }
+
+    func setupWallet() {
         let mnemonic = try! Mnemonic.generateMnemonic(strength: 128, language: .english)
         print(mnemonic)
         
@@ -47,7 +51,6 @@ class ViewController: UIViewController {
         print(balance)
         print(balanceString)
     }
-
 
 }
 

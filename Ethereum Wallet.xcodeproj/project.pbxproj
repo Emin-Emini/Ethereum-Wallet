@@ -13,6 +13,19 @@
 		1958350E2837ED8D00881885 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1958350C2837ED8D00881885 /* Main.storyboard */; };
 		195835102837ED8F00881885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1958350F2837ED8F00881885 /* Assets.xcassets */; };
 		195835132837ED8F00881885 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195835112837ED8F00881885 /* LaunchScreen.storyboard */; };
+		196A0C6228414F5200A0E381 /* RecoveryPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A0C6128414F5200A0E381 /* RecoveryPhraseViewController.swift */; };
+		196A0C642841521E00A0E381 /* PhraseWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A0C632841521E00A0E381 /* PhraseWordCollectionViewCell.swift */; };
+		196A0C68284152A900A0E381 /* ConfirmRecoveryPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A0C67284152A900A0E381 /* ConfirmRecoveryPhraseViewController.swift */; };
+		196A0C6C2841559B00A0E381 /* MDCTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A0C6B2841559B00A0E381 /* MDCTextField+Extension.swift */; };
+		196A0C6E2841566200A0E381 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A0C6D2841566200A0E381 /* UIColor+Extension.swift */; };
+		196A0C712841581000A0E381 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A0C702841581000A0E381 /* UIButton+Extension.swift */; };
+		196A0C732841622200A0E381 /* ConfirmCreateWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A0C722841622200A0E381 /* ConfirmCreateWalletViewController.swift */; };
+		196A0C752841627E00A0E381 /* CheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A0C742841627E00A0E381 /* CheckmarkView.swift */; };
+		196A0C782841650500A0E381 /* CheckmarkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196A0C772841650500A0E381 /* CheckmarkView.xib */; };
+		196A0C7B284254AE00A0E381 /* WalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A0C7A284254AE00A0E381 /* WalletTableViewCell.swift */; };
+		196A0C7D28425DA000A0E381 /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A0C7C28425DA000A0E381 /* WalletsViewController.swift */; };
+		19C504992841288500AA964C /* CreateWallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C504982841288500AA964C /* CreateWallet.storyboard */; };
+		19C5049B284128A800AA964C /* CreateWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C5049A284128A800AA964C /* CreateWalletViewController.swift */; };
 		2843F91D54B23A2671581231 /* Pods_Ethereum_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894F1A74E3AD295DD477F65A /* Pods_Ethereum_Wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +38,19 @@
 		1958350F2837ED8F00881885 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		195835122837ED8F00881885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		195835142837ED8F00881885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		196A0C6128414F5200A0E381 /* RecoveryPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPhraseViewController.swift; sourceTree = "<group>"; };
+		196A0C632841521E00A0E381 /* PhraseWordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseWordCollectionViewCell.swift; sourceTree = "<group>"; };
+		196A0C67284152A900A0E381 /* ConfirmRecoveryPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmRecoveryPhraseViewController.swift; sourceTree = "<group>"; };
+		196A0C6B2841559B00A0E381 /* MDCTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MDCTextField+Extension.swift"; sourceTree = "<group>"; };
+		196A0C6D2841566200A0E381 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		196A0C702841581000A0E381 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		196A0C722841622200A0E381 /* ConfirmCreateWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCreateWalletViewController.swift; sourceTree = "<group>"; };
+		196A0C742841627E00A0E381 /* CheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkView.swift; sourceTree = "<group>"; };
+		196A0C772841650500A0E381 /* CheckmarkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckmarkView.xib; sourceTree = "<group>"; };
+		196A0C7A284254AE00A0E381 /* WalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTableViewCell.swift; sourceTree = "<group>"; };
+		196A0C7C28425DA000A0E381 /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
+		19C504982841288500AA964C /* CreateWallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateWallet.storyboard; sourceTree = "<group>"; };
+		19C5049A284128A800AA964C /* CreateWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletViewController.swift; sourceTree = "<group>"; };
 		2FE0C0DAF99E9185EA2E6B70 /* Pods-Ethereum Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ethereum Wallet.debug.xcconfig"; path = "Target Support Files/Pods-Ethereum Wallet/Pods-Ethereum Wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		894F1A74E3AD295DD477F65A /* Pods_Ethereum_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ethereum_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE18A3EB0011AEF8509DDBB8 /* Pods-Ethereum Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ethereum Wallet.release.xcconfig"; path = "Target Support Files/Pods-Ethereum Wallet/Pods-Ethereum Wallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,12 +92,89 @@
 				195835062837ED8D00881885 /* AppDelegate.swift */,
 				195835082837ED8D00881885 /* SceneDelegate.swift */,
 				1958350A2837ED8D00881885 /* ViewController.swift */,
-				1958350C2837ED8D00881885 /* Main.storyboard */,
+				196A0C7E284403F500A0E381 /* Wallet Onboard */,
+				196A0C6A284152C600A0E381 /* Create Wallet */,
+				196A0C762841628B00A0E381 /* Reusable */,
+				196A0C6F2841576C00A0E381 /* Extensions */,
 				1958350F2837ED8F00881885 /* Assets.xcassets */,
 				195835112837ED8F00881885 /* LaunchScreen.storyboard */,
 				195835142837ED8F00881885 /* Info.plist */,
 			);
 			path = "Ethereum Wallet";
+			sourceTree = "<group>";
+		};
+		196A0C652841522400A0E381 /* Recovery Phrase */ = {
+			isa = PBXGroup;
+			children = (
+				196A0C6128414F5200A0E381 /* RecoveryPhraseViewController.swift */,
+				196A0C632841521E00A0E381 /* PhraseWordCollectionViewCell.swift */,
+			);
+			path = "Recovery Phrase";
+			sourceTree = "<group>";
+		};
+		196A0C662841522D00A0E381 /* Create Wallet (Credentials) */ = {
+			isa = PBXGroup;
+			children = (
+				19C5049A284128A800AA964C /* CreateWalletViewController.swift */,
+			);
+			path = "Create Wallet (Credentials)";
+			sourceTree = "<group>";
+		};
+		196A0C69284152B700A0E381 /* Confirm Recovery Phrase */ = {
+			isa = PBXGroup;
+			children = (
+				196A0C67284152A900A0E381 /* ConfirmRecoveryPhraseViewController.swift */,
+			);
+			path = "Confirm Recovery Phrase";
+			sourceTree = "<group>";
+		};
+		196A0C6A284152C600A0E381 /* Create Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				196A0C722841622200A0E381 /* ConfirmCreateWalletViewController.swift */,
+				196A0C662841522D00A0E381 /* Create Wallet (Credentials) */,
+				196A0C652841522400A0E381 /* Recovery Phrase */,
+				196A0C69284152B700A0E381 /* Confirm Recovery Phrase */,
+				19C504982841288500AA964C /* CreateWallet.storyboard */,
+			);
+			path = "Create Wallet";
+			sourceTree = "<group>";
+		};
+		196A0C6F2841576C00A0E381 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				196A0C6B2841559B00A0E381 /* MDCTextField+Extension.swift */,
+				196A0C6D2841566200A0E381 /* UIColor+Extension.swift */,
+				196A0C702841581000A0E381 /* UIButton+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		196A0C762841628B00A0E381 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				196A0C792841650E00A0E381 /* Checkmark */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		196A0C792841650E00A0E381 /* Checkmark */ = {
+			isa = PBXGroup;
+			children = (
+				196A0C772841650500A0E381 /* CheckmarkView.xib */,
+				196A0C742841627E00A0E381 /* CheckmarkView.swift */,
+			);
+			path = Checkmark;
+			sourceTree = "<group>";
+		};
+		196A0C7E284403F500A0E381 /* Wallet Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				1958350C2837ED8D00881885 /* Main.storyboard */,
+				196A0C7C28425DA000A0E381 /* WalletsViewController.swift */,
+				196A0C7A284254AE00A0E381 /* WalletTableViewCell.swift */,
+			);
+			path = "Wallet Onboard";
 			sourceTree = "<group>";
 		};
 		864046A1BAB4100739C3ACE9 /* Pods */ = {
@@ -80,7 +183,6 @@
 				2FE0C0DAF99E9185EA2E6B70 /* Pods-Ethereum Wallet.debug.xcconfig */,
 				DE18A3EB0011AEF8509DDBB8 /* Pods-Ethereum Wallet.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -152,9 +254,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				196A0C782841650500A0E381 /* CheckmarkView.xib in Resources */,
 				195835132837ED8F00881885 /* LaunchScreen.storyboard in Resources */,
 				195835102837ED8F00881885 /* Assets.xcassets in Resources */,
 				1958350E2837ED8D00881885 /* Main.storyboard in Resources */,
+				19C504992841288500AA964C /* CreateWallet.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +311,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				196A0C6228414F5200A0E381 /* RecoveryPhraseViewController.swift in Sources */,
+				19C5049B284128A800AA964C /* CreateWalletViewController.swift in Sources */,
 				1958350B2837ED8D00881885 /* ViewController.swift in Sources */,
+				196A0C712841581000A0E381 /* UIButton+Extension.swift in Sources */,
+				196A0C732841622200A0E381 /* ConfirmCreateWalletViewController.swift in Sources */,
+				196A0C6E2841566200A0E381 /* UIColor+Extension.swift in Sources */,
 				195835072837ED8D00881885 /* AppDelegate.swift in Sources */,
+				196A0C6C2841559B00A0E381 /* MDCTextField+Extension.swift in Sources */,
 				195835092837ED8D00881885 /* SceneDelegate.swift in Sources */,
+				196A0C7B284254AE00A0E381 /* WalletTableViewCell.swift in Sources */,
+				196A0C642841521E00A0E381 /* PhraseWordCollectionViewCell.swift in Sources */,
+				196A0C752841627E00A0E381 /* CheckmarkView.swift in Sources */,
+				196A0C68284152A900A0E381 /* ConfirmRecoveryPhraseViewController.swift in Sources */,
+				196A0C7D28425DA000A0E381 /* WalletsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +478,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -392,6 +508,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
