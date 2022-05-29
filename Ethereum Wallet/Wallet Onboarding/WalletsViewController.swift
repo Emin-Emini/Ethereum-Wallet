@@ -29,6 +29,11 @@ class WalletsViewController: ViewController {
         
         loadWallet()
         loadLayout()
+        
+        KeychainWrapper.standard.removeObject(forKey: "walletName")
+        KeychainWrapper.standard.removeObject(forKey: "spendingPassword")
+        KeychainWrapper.standard.removeObject(forKey: "walletMnemonics")
+        KeychainWrapper.standard.removeObject(forKey: "walletAddresses")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,7 +139,7 @@ extension WalletsViewController {
         } else if wallet.isEmpty { //When user wants to create a wallet for the first time.
             walletsTableView.isHidden = true
             createWalletButton.isHidden = false // Show Create Wallet
-            restoreWalletButton.isHidden = true // Hide Restore Wallet
+            restoreWalletButton.isHidden = false // Hide Restore Wallet
         }
     }
 
