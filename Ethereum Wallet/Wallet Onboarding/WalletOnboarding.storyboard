@@ -9,13 +9,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--InWallet-->
+        <scene sceneID="ErO-FJ-Iiz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="InWallet" id="cFd-DQ-d1c" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9AJ-Yj-aDH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="699" y="-47"/>
+        </scene>
         <!--CreateWallet-->
         <scene sceneID="IfE-bt-GUd">
             <objects>
                 <viewControllerPlaceholder storyboardName="CreateWallet" id="DAd-xh-qHg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUr-R6-oEM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="7"/>
+            <point key="canvasLocation" x="720" y="149"/>
         </scene>
         <!--RestoreWallet-->
         <scene sceneID="kH3-zN-T6q">
@@ -23,7 +31,7 @@
                 <viewControllerPlaceholder storyboardName="RestoreWallet" id="lM1-YG-LAx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4f-HW-Vkd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="753" y="70"/>
+            <point key="canvasLocation" x="725" y="203"/>
         </scene>
         <!--Wallets View Controller-->
         <scene sceneID="oDN-v9-vls">
@@ -123,6 +131,7 @@
                                         <connections>
                                             <outlet property="containerView" destination="22J-oU-WNe" id="xNZ-4V-KcE"/>
                                             <outlet property="walletName" destination="SsA-OK-wBR" id="bw7-6o-fpx"/>
+                                            <segue destination="cFd-DQ-d1c" kind="showDetail" id="J9r-ST-bUs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

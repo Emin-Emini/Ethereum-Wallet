@@ -29,11 +29,6 @@ class WalletsViewController: ViewController {
         
         loadWallet()
         loadLayout()
-        
-        KeychainWrapper.standard.removeObject(forKey: "walletName")
-        KeychainWrapper.standard.removeObject(forKey: "spendingPassword")
-        KeychainWrapper.standard.removeObject(forKey: "walletMnemonics")
-        KeychainWrapper.standard.removeObject(forKey: "walletAddresses")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,12 +114,9 @@ extension WalletsViewController {
         wallet.removeAll()
         guard let keychainWalletName = KeychainWrapper.standard.string(forKey: "walletName") else { return }
         let keychainAddressesString = KeychainWrapper.standard.string(forKey: "walletAddresses")
-        guard let keychainAddressesArray = keychainAddressesString?.split(whereSeparator: {$0 == " "}).map(String.init) else { return }
-        let loadWallet = WalletModel(name: keychainWalletName, addresses: keychainAddressesArray)
-        if !keychainAddressesArray.isEmpty {
-            arrayOfAddresses = keychainAddressesArray
-            wallet.append(loadWallet)
-        }
+        arrayOfAddresses.append(keychainAddressesString!)
+        let loadWallet = WalletModel(name: keychainWalletName, addresses: arrayOfAddresses)
+        wallet.append(loadWallet)
         let keychainMnemonicsString = KeychainWrapper.standard.string(forKey: "walletMnemonics")
         guard let keychainMnemonicsArray = keychainMnemonicsString?.split(whereSeparator: {$0 == " "}).map(String.init) else { return }
         mnemonics = keychainMnemonicsArray
