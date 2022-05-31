@@ -12,6 +12,10 @@ import SwiftKeychainWrapper
 
 class DashboardViewController: UIViewController {
 
+    // MARK: - Outlets
+    @IBOutlet weak var walletBalanceLabel: UILabel!
+    
+    // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +34,9 @@ class DashboardViewController: UIViewController {
         let web3 = Web3.InfuraMainnetWeb3()
         let address = EthereumAddress(keychainAddressesString)!
         let balance = try! web3.eth.getBalance(address: address)
-        //let balanceString = Web3.Utils.formatToEthereumUnits(balance, toUnits: .eth, decimals: 8)
+        let balanceString = Web3.Utils.formatToEthereumUnits(balance, toUnits: .eth, decimals: 8)
+        
+        walletBalanceLabel.text = balanceString
         //print(balance)
         //print(balanceString)
     }

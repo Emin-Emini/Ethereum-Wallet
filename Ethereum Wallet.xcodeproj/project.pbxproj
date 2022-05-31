@@ -37,6 +37,7 @@
 		19D6A7242845140B0069E84B /* InWallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D6A7232845140B0069E84B /* InWallet.storyboard */; };
 		19D6A7262845196A0069E84B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A7252845196A0069E84B /* DashboardViewController.swift */; };
 		19D6A729284528D60069E84B /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A728284528D60069E84B /* ReceiveViewController.swift */; };
+		19D6A72B2845764A0069E84B /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A72A2845764A0069E84B /* SendViewController.swift */; };
 		2843F91D54B23A2671581231 /* Pods_Ethereum_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894F1A74E3AD295DD477F65A /* Pods_Ethereum_Wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		19D6A7232845140B0069E84B /* InWallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InWallet.storyboard; sourceTree = "<group>"; };
 		19D6A7252845196A0069E84B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		19D6A728284528D60069E84B /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
+		19D6A72A2845764A0069E84B /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		2FE0C0DAF99E9185EA2E6B70 /* Pods-Ethereum Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ethereum Wallet.debug.xcconfig"; path = "Target Support Files/Pods-Ethereum Wallet/Pods-Ethereum Wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		894F1A74E3AD295DD477F65A /* Pods_Ethereum_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ethereum_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE18A3EB0011AEF8509DDBB8 /* Pods-Ethereum Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ethereum Wallet.release.xcconfig"; path = "Target Support Files/Pods-Ethereum Wallet/Pods-Ethereum Wallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				19D6A7252845196A0069E84B /* DashboardViewController.swift */,
+				19D6A72A2845764A0069E84B /* SendViewController.swift */,
 				19D6A728284528D60069E84B /* ReceiveViewController.swift */,
 				19D6A7232845140B0069E84B /* InWallet.storyboard */,
 			);
@@ -382,6 +385,7 @@
 				196A0C7B284254AE00A0E381 /* WalletTableViewCell.swift in Sources */,
 				196A0C642841521E00A0E381 /* PhraseWordCollectionViewCell.swift in Sources */,
 				196A0C752841627E00A0E381 /* CheckmarkView.swift in Sources */,
+				19D6A72B2845764A0069E84B /* SendViewController.swift in Sources */,
 				19D6A7262845196A0069E84B /* DashboardViewController.swift in Sources */,
 				196A0C68284152A900A0E381 /* ConfirmRecoveryPhraseViewController.swift in Sources */,
 				196A0C7D28425DA000A0E381 /* WalletsViewController.swift in Sources */,
