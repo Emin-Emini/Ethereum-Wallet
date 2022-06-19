@@ -29,7 +29,7 @@ class ReceiveViewController: UIViewController {
         // Do any additional setup after loading the view.
 //        self.title = "Receive"
 //        self.tabBarController?.viewControllers?[3].tabBarItem.title = NSLocalizedString("Receive", comment: "")
-        topMessageLabel.text = "Use this address to receive ETH."
+        //topMessageLabel.text = "Use this address to receive ETH."
         
         loadQRCode()
     }
