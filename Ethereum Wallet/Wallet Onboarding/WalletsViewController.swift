@@ -141,3 +141,7 @@ struct WalletModel {
     let name: String
     let addresses: [String]
 }
+
+class MyWallet {
+    static var amount: Double = 0.0
+}

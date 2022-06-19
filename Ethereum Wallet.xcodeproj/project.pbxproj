@@ -34,6 +34,7 @@
 		196A0C9128440C5500A0E381 /* WalletOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196A0C9028440C5500A0E381 /* WalletOnboarding.storyboard */; };
 		19C504992841288500AA964C /* CreateWallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C504982841288500AA964C /* CreateWallet.storyboard */; };
 		19C5049B284128A800AA964C /* CreateWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C5049A284128A800AA964C /* CreateWalletViewController.swift */; };
+		19CA1BC1285F74660005183B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA1BC0285F74660005183B /* UIViewController+Extension.swift */; };
 		19D6A7242845140B0069E84B /* InWallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D6A7232845140B0069E84B /* InWallet.storyboard */; };
 		19D6A7262845196A0069E84B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A7252845196A0069E84B /* DashboardViewController.swift */; };
 		19D6A729284528D60069E84B /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A728284528D60069E84B /* ReceiveViewController.swift */; };
@@ -71,6 +72,7 @@
 		196A0C9028440C5500A0E381 /* WalletOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalletOnboarding.storyboard; sourceTree = "<group>"; };
 		19C504982841288500AA964C /* CreateWallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateWallet.storyboard; sourceTree = "<group>"; };
 		19C5049A284128A800AA964C /* CreateWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletViewController.swift; sourceTree = "<group>"; };
+		19CA1BC0285F74660005183B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		19D6A7232845140B0069E84B /* InWallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InWallet.storyboard; sourceTree = "<group>"; };
 		19D6A7252845196A0069E84B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		19D6A728284528D60069E84B /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				196A0C702841581000A0E381 /* UIButton+Extension.swift */,
 				196A0C8B284407CC00A0E381 /* CALayer+Extension.swift */,
 				196A0C85284406BE00A0E381 /* String+Extension.swift */,
+				19CA1BC0285F74660005183B /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				196A0C6E2841566200A0E381 /* UIColor+Extension.swift in Sources */,
 				196A0C86284406BE00A0E381 /* String+Extension.swift in Sources */,
 				196A0C8A2844077200A0E381 /* AddressTableViewCell.swift in Sources */,
+				19CA1BC1285F74660005183B /* UIViewController+Extension.swift in Sources */,
 				195835072837ED8D00881885 /* AppDelegate.swift in Sources */,
 				19D6A729284528D60069E84B /* ReceiveViewController.swift in Sources */,
 				196A0C6C2841559B00A0E381 /* MDCTextField+Extension.swift in Sources */,

@@ -40,7 +40,10 @@ class DashboardViewController: UIViewController {
         let balance = try! web3.eth.getBalance(address: address)
         let balanceString = Web3.Utils.formatToEthereumUnits(balance, toUnits: .eth, decimals: 8)
         
-        walletBalanceLabel.text = "\(balanceString ?? "0.0") ETH"
+        let amountInDouble = Double(balanceString ?? "0.0") ?? 0.0
+        
+        walletBalanceLabel.text = "\(amountInDouble) ETH"
+        MyWallet.amount = amountInDouble
         //print(balance)
         //print(balanceString)
     }

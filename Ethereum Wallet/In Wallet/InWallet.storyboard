@@ -334,6 +334,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Copy to Clipboard"/>
+                                                        <connections>
+                                                            <action selector="copyAddress:" destination="j5t-dC-Vnv" eventType="touchUpInside" id="3IC-KJ-eit"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -397,20 +400,15 @@
                     <navigationItem key="navigationItem" title="Receive" largeTitleDisplayMode="never" id="IER-a6-eyv">
                         <barButtonItem key="backBarButtonItem" id="PYd-Jh-uPh"/>
                         <barButtonItem key="leftBarButtonItem" image="ic-back-arrow" id="yIh-hj-B7T">
-                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="goBack:" destination="j5t-dC-Vnv" id="fgw-5b-sur"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="settings" id="8If-tB-vNb">
-                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="goToSettings:" destination="j5t-dC-Vnv" id="Kwa-we-oei"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="qrCodeImage" destination="iLK-Gn-YqA" id="vbj-hy-MZk"/>
+                        <outlet property="walletAddressLabel" destination="S6V-FS-8ct" id="OdH-0J-poI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kB-LE-MoG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -429,7 +427,7 @@
                                 <rect key="frame" x="0.0" y="116" width="414" height="726"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ord-66-NSe">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="737"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TsD-V0-hm7">
                                                 <rect key="frame" x="155" y="32" width="104.5" height="22"/>
@@ -544,46 +542,21 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="sPm-N6-BKh">
-                                                <rect key="frame" x="32" y="334" width="350" height="77"/>
+                                                <rect key="frame" x="32" y="334" width="350" height="55"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STc-YM-4qw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="77"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipient:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC1-hW-jZH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="18"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="18" id="OxB-eC-2Mh"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <color key="textColor" systemColor="systemGrayColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AtX-Fe-LNK" customClass="MDCFilledTextField">
-                                                                <rect key="frame" x="0.0" y="22" width="350" height="55"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="55" id="2cJ-Kt-mKQ"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartInsertDeleteType="no" textContentType="name"/>
-                                                            </textField>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AtX-Fe-LNK" customClass="MDCFilledTextField">
+                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
                                                         <constraints>
-                                                            <constraint firstItem="eC1-hW-jZH" firstAttribute="top" secondItem="STc-YM-4qw" secondAttribute="top" id="DKM-cl-eC1"/>
-                                                            <constraint firstAttribute="bottom" secondItem="AtX-Fe-LNK" secondAttribute="bottom" id="Kii-So-fin"/>
-                                                            <constraint firstItem="eC1-hW-jZH" firstAttribute="leading" secondItem="STc-YM-4qw" secondAttribute="leading" id="MMz-3i-7B7"/>
-                                                            <constraint firstAttribute="height" constant="77" id="UY3-dw-xtg"/>
-                                                            <constraint firstItem="AtX-Fe-LNK" firstAttribute="leading" secondItem="STc-YM-4qw" secondAttribute="leading" id="XUz-OY-lYW"/>
-                                                            <constraint firstAttribute="trailing" secondItem="AtX-Fe-LNK" secondAttribute="trailing" id="asj-xv-pWU"/>
-                                                            <constraint firstItem="AtX-Fe-LNK" firstAttribute="top" secondItem="eC1-hW-jZH" secondAttribute="bottom" constant="4" id="rWW-wd-gND"/>
-                                                            <constraint firstAttribute="trailing" secondItem="eC1-hW-jZH" secondAttribute="trailing" id="skj-m8-cQY"/>
+                                                            <constraint firstAttribute="height" constant="55" id="2cJ-Kt-mKQ"/>
                                                         </constraints>
-                                                    </view>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartInsertDeleteType="no" textContentType="name"/>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxX-hk-6Zu">
-                                                <rect key="frame" x="32" y="443" width="350" height="52"/>
+                                                <rect key="frame" x="32" y="421" width="350" height="52"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yIc-Kv-Lhd">
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="52"/>
@@ -667,7 +640,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T42-8F-vN2">
-                                                <rect key="frame" x="32" y="695" width="350" height="48"/>
+                                                <rect key="frame" x="32" y="673" width="350" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="E0y-lV-Fjg"/>
                                                 </constraints>
@@ -740,8 +713,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addressTextField" destination="AtX-Fe-LNK" id="Ykc-i6-dfy"/>
-                        <outlet property="addressTextfieldHeightConstraint" destination="UY3-dw-xtg" id="o6c-PS-bx0"/>
-                        <outlet property="addressView" destination="STc-YM-4qw" id="yvC-dc-KiL"/>
                         <outlet property="amountTextField" destination="q4m-aK-aWh" id="oOX-qw-HKE"/>
                         <outlet property="amountTextFieldMessage" destination="sDT-Rj-7oo" id="Ahg-UQ-Ez3"/>
                         <outlet property="amountTextFieldMessageView" destination="UGz-8h-zi1" id="4xY-Bq-SCB"/>
@@ -816,7 +787,6 @@
         <image name="ic-setting" width="32" height="32"/>
         <image name="pull-down" width="1076.5" height="371.5"/>
         <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
-        <image name="settings" width="24" height="24.5"/>
         <namedColor name="Background Color">
             <color red="0.92941176470588238" green="0.93725490196078431" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
