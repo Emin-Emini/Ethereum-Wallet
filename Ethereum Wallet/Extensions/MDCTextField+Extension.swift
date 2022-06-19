@@ -30,7 +30,7 @@ extension MDCFilledTextField {
         self.setLeadingAssistiveLabelColor(.grey3, for: .editing)
                 
         self.setUnderlineColor(.grey3, for: .normal)
-        self.setUnderlineColor(.brightSkyBlue, for: .editing)
+        self.setUnderlineColor(.primaryBlue, for: .editing)
     }
     
     func showErrorMessage(message: String) {
@@ -66,12 +66,12 @@ extension MDCFilledTextField {
     
     func showUnderline() {
         self.setUnderlineColor(.grey3, for: .normal)
-        self.setUnderlineColor(.brightSkyBlue, for: .editing)
+        self.setUnderlineColor(.primaryBlue, for: .editing)
     }
     
     private func normalLayout() {
         self.setUnderlineColor(.grey3, for: .normal)
-        self.setUnderlineColor(.brightSkyBlue, for: .editing)
+        self.setUnderlineColor(.primaryBlue, for: .editing)
         self.setFloatingLabelColor(.neutralDark, for: .normal)
         self.setFloatingLabelColor(.neutralDark, for: .editing)
         self.setLeadingAssistiveLabelColor(.grey3, for: .normal)
@@ -86,7 +86,7 @@ extension MDCOutlinedTextField {
         self.placeholder = placeholder
         
         self.setOutlineColor(.grey3, for: .normal)
-        self.setOutlineColor(.brightSkyBlue, for: .editing)
+        self.setOutlineColor(.primaryBlue, for: .editing)
                 
         self.label.font = UIFont.systemFont(ofSize: 15)
         self.setNormalLabelColor(.grey3, for: .normal)
@@ -130,16 +130,16 @@ extension MDCOutlinedTextField {
     
     func setCorrectLayout() {
         self.setOutlineColor(.green, for: .normal)
-        self.setOutlineColor(.brightSkyBlue, for: .editing)
+        self.setOutlineColor(.primaryBlue, for: .editing)
         self.setFloatingLabelColor(.green, for: .normal)
-        self.setFloatingLabelColor(.brightSkyBlue, for: .editing)
+        self.setFloatingLabelColor(.primaryBlue, for: .editing)
         self.setLeadingAssistiveLabelColor(.green, for: .normal)
-        self.setLeadingAssistiveLabelColor(.brightSkyBlue, for: .editing)
+        self.setLeadingAssistiveLabelColor(.primaryBlue, for: .editing)
     }
     
     private func normalLayout() {
         self.setOutlineColor(.grey3, for: .normal)
-        self.setOutlineColor(.brightSkyBlue, for: .editing)
+        self.setOutlineColor(.primaryBlue, for: .editing)
         self.setFloatingLabelColor(.neutralDark, for: .normal)
         self.setFloatingLabelColor(.neutralDark, for: .editing)
         self.setLeadingAssistiveLabelColor(.grey3, for: .normal)

@@ -8,6 +8,7 @@
 import UIKit
 import MaterialComponents.MaterialTextControls_FilledTextFields
 import SwiftKeychainWrapper
+import web3swift
 
 class SendViewController: UIViewController {
     
@@ -34,7 +35,6 @@ class SendViewController: UIViewController {
     
     
     // MARK: - View
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,16 +50,7 @@ class SendViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.title = "Send"
-//        self.tabBarController?.viewControllers?[2].tabBarItem.title = NSLocalizedString("Send", comment: "")
-//
-//        tabBarController?.tabBar.isHidden = false
-//
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+        mainTokenAmountLabel.text = "\(MyWallet.amount) ETH"
     }
     
     // MARK: - Actions
@@ -69,21 +60,13 @@ class SendViewController: UIViewController {
     }
     
     @IBAction func maxAmount(_ sender: Any) {
-        //amountTextField.text = "\(revuAmountValue)"
-        guard !(addressTextField.text!.isEmpty) else {
-            addressTextField.showErrorMessage(message: "Address cannot be empty!")
-            return
-        }
-        addressTextField.hideErrorMessage()
-        //validateTokenAmount()
+        amountTextField.text = "\(MyWallet.amount)"
+        validateTokenAmount()
     }
     
     @IBAction func continueSending(_ sender: Any) {
         //continuSendingButton(isFeeCalculated: isFeeCalculated)
     }
-    
-    // MARK: - Helpers
-    
 }
 
 // MARK: - Unwing Functions
@@ -91,10 +74,33 @@ extension SendViewController {
     
 }
 
+// MARK: - Sign Tx Function
+extension SendViewController {
+    func signTransaction() {
+        let web3 = Web3.InfuraMainnetWeb3()
+        let value: String = amountTextField.text ?? "0.0"
+        guard let myAddressString = arrayOfAddresses.first else { return }
+        let walletAddress = EthereumAddress(myAddressString)! // Your wallet address
+        let toAddress = EthereumAddress(addressTextField.text!)!
+        let contract = web3.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
+        let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
+        var options = TransactionOptions.defaultOptions
+        options.value = amount
+        options.from = walletAddress
+        options.gasPrice = .automatic
+        options.gasLimit = .automatic
+        let tx = contract.write(
+        "fallback",
+        parameters: [AnyObject](),
+        extraData: Data(),
+        transactionOptions: options)!
+    }
+}
+
 // MARK: - Buttons Setup
 extension SendViewController {
     func setupButtons() {
-        continueButton.setStyle(fillColor: .brightSkyBlue, title: "CONTINUE", fontSize: 16)
+        continueButton.setStyle(fillColor: .primaryBlue, title: "CONTINUE", fontSize: 16)
         continueButton.disable()
     }
 }
@@ -111,7 +117,7 @@ extension SendViewController: UITextFieldDelegate {
         addressTextField.defaultStyle(label: "Address", placeholder: "Address")
         
         setupScanAddresIcon()
-        addKeyboardObservers()
+        //addKeyboardObservers()
     }
     
     func setupScanAddresIcon() {
@@ -156,11 +162,13 @@ extension SendViewController: UITextFieldDelegate {
             
             return
         }
-        //validateTokenAmount()
+        validateTokenAmount()
         guard !addressTextField.text!.isEmpty else {
             continueButton.disable()
             return
         }
+        
+        continueButton.enable(fillColor: .primaryBlue)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -177,12 +185,13 @@ extension SendViewController: UITextFieldDelegate {
             }
             return
         }
-        //validateTokenAmount()
+        validateTokenAmount()
         guard !addressTextField.text!.isEmpty else {
             continueButton.disable()
             return
         }
         
+        continueButton.enable(fillColor: .primaryBlue)
     }
     
     /// UITextFieldDelegate functions -> shouldChangeCharactersIn Range this functions is used to not to allow space in the text field.
@@ -214,171 +223,45 @@ extension SendViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - Keyboard Will Show
-extension SendViewController {
-    func addKeyboardObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//            if self.view.frame.origin.y == 0 {
-//                self.view.frame.origin.y -= keyboardSize.height
-//            }
-//        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-//        if self.view.frame.origin.y != 0 {
-//            self.view.frame.origin.y = 0
-//        }
-    }
-}
 
-
-
-/*
 // MARK: - Send Validations
 extension SendViewController {
     func validateTokenAmount() {
         let amountInput = amountTextField.text
         let doubleAmountInput = Double(amountInput!)
-        if tokensAvailable.count == 1 {
-            validateIfOnlyAda(amountInput: doubleAmountInput ?? 0, adaBalance: adaAmountValue)
-        } else {
-            if selectedSendingTokenIndex == 0 {
-                validateIfBothAvailableAndSelectedAda(amountInput: doubleAmountInput ?? 0, adaBalance: adaAmountValue)
-            } else {
-                validateIfBothAvailableAndSelectedRevu(amountInput: doubleAmountInput ?? 0,
-                                                       adaBalance: adaAmountValue,
-                                                       revuBalance: revuAmountValue,
-                                                       minimumToSend: selectedToken?.minimumAmountSend ?? 1)
-            }
-        }
+        validate(amountInput: doubleAmountInput ?? 0, balance: MyWallet.amount)
     }
     
-    func validateIfOnlyAda(amountInput: Double, adaBalance: Double) {
-        if amountInput < 1 {
-            continueButton.disable(.filled)
-//            amountTextField.hideErrorMessage()
-//            amountTextField.showErrorMessage(message: "Amount too low. Minimum amount to send is 1 ADA")
+    func validate(amountInput: Double, balance: Double) {
+        if amountInput < 0.0000001 {
+            continueButton.disable()
             amountTextFieldMessageView.isHidden = false
-            amountTextFieldMessage.text = "Amount too low. Minimum amount to send is 1 ADA"
-            print("Amount too low. Minimum amount to send is 1 ADA")
+            amountTextFieldMessage.text = "Amount too low. Minimum amount to send is 0.0000001 ETH"
+            
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.warning)
         } else {
-            if adaBalance < 2 {
-                continueButton.disable(.filled)
-//                amountTextField.hideErrorMessage()
-//                amountTextField.showErrorMessage(message: "Account balance needs to be to at least 2 ADA to send minimum value of ADA.")
+            if balance < 0.0000001 {
+                continueButton.disable()
                 amountTextFieldMessageView.isHidden = false
-                amountTextFieldMessage.text = "Account balance needs to be to at least 2 ADA to send minimum value of ADA."
-                print("Account balance needs to be to at least 2 ADA to send minimum value of ADA.")
+                amountTextFieldMessage.text = "Account balance needs to be to at least 0.0000001 ETH to send minimum value of ETH."
+                
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.warning)
-            } else if (adaBalance >= 2 && amountInput >= adaBalance) {
-                continueButton.disable(.filled)
-//                amountTextField.hideErrorMessage()
-//                amountTextField.showErrorMessage(message: "Not enough ADA to send this transaction.")
+            } else if (balance >= 0.0000001 && amountInput > balance) {
+                continueButton.disable()
                 amountTextFieldMessageView.isHidden = false
-                amountTextFieldMessage.text = "Not enough ADA to send this transaction."
-                print("Not enough ADA to send this transaction.")
+                amountTextFieldMessage.text = "Not enough ETH to send this transaction."
+                
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.warning)
             } else {
-                //amountTextField.hideErrorMessage()
                 amountTextFieldMessageView.isHidden = true
-                updateAmount(destinationAddress: addressTextField.text!, amountToSend: amountTextField.text!)
-                continueButton.setStyle(.filled, fillColor: .brightSkyBlue, title: "CALCULATE FEE", fontSize: 16)
-                continueButton.enable(.filled, fillColor: .brightSkyBlue)
-                print("Calculate Fee.")
-            }
-        }
-    }
-    
-    func validateIfBothAvailableAndSelectedAda(amountInput: Double, adaBalance: Double) {
-        if amountInput < 1 {
-            continueButton.disable(.filled)
-//            amountTextField.hideErrorMessage()
-//            amountTextField.showErrorMessage(message: "Amount too low. Minimum amount to send is 1 ADA")
-            amountTextFieldMessageView.isHidden = false
-            amountTextFieldMessage.text = "Amount too low. Minimum amount to send is 1 ADA"
-            print("Amount too low. Minimum amount to send is 1 ADA")
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.warning)
-        } else {
-            if adaBalance < 2.7 {
-                continueButton.disable(.filled)
-//                amountTextField.hideErrorMessage()
-//                amountTextField.showErrorMessage(message: "Account balance needs to be at least 2.7 ADA to send ADA transaction.")
-                amountTextFieldMessageView.isHidden = false
-                amountTextFieldMessage.text = "Account balance needs to be at least 2.7 ADA to send ADA transaction."
-                print("Account balance needs to be at least 2.7 ADA to send ADA transaction.")
-                let generator = UINotificationFeedbackGenerator()
-                generator.notificationOccurred(.warning)
-            } else if (adaBalance >= 2.7) && (amountInput > (adaBalance - 1.7)) {
-                continueButton.disable(.filled)
-//                amountTextField.hideErrorMessage()
-//                amountTextField.showErrorMessage(message: "Not enough ADA to send this transaction. Try a lower amount.")
-                amountTextFieldMessageView.isHidden = false
-                amountTextFieldMessage.text = "Not enough ADA to send this transaction. Try a lower amount."
-                print("Not enough ADA to send this transaction. Try a lower amount.")
-                let generator = UINotificationFeedbackGenerator()
-                generator.notificationOccurred(.warning)
-            } else {
-                //amountTextField.hideErrorMessage()
-                amountTextFieldMessageView.isHidden = true
-                updateAmount(destinationAddress: addressTextField.text!, amountToSend: amountTextField.text!)
-                continueButton.setStyle(.filled, fillColor: .brightSkyBlue, title: "CALCULATE FEE", fontSize: 16)
-                continueButton.enable(.filled, fillColor: .brightSkyBlue)
-                print("Calculate Fee.")
-            }
-        }
-    }
-    
-    func validateIfBothAvailableAndSelectedRevu(amountInput: Double, adaBalance: Double, revuBalance: Double, minimumToSend: Double) {
-        print(minimumToSend)
-        if amountInput < minimumToSend {
-            continueButton.disable(.filled)
-//            amountTextField.hideErrorMessage()
-//            amountTextField.showErrorMessage(message: "Amount too low. Minimum amount to send is \(minRevuToSend) REVU")
-            amountTextFieldMessageView.isHidden = false
-            amountTextFieldMessage.text = "Amount too low. Minimum amount to send is \(minimumToSend) \(selectedToken?.displayName ?? "REVU")"
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.warning)
-        } else {
-            if (adaBalance >= minAdaToSend && adaBalance < 3) && (amountInput == revuBalance) {
-                //amountTextField.hideErrorMessage()
-                amountTextFieldMessageView.isHidden = true
-                updateAmount(destinationAddress: addressTextField.text!, amountToSend: amountTextField.text!)
-                continueButton.setStyle(.filled, fillColor: .brightSkyBlue, title: "CALCULATE FEE", fontSize: 16)
-                continueButton.enable(.filled, fillColor: .brightSkyBlue)
-            } else if (adaBalance > 3 && amountInput <= revuBalance) {
-                //amountTextField.hideErrorMessage()
-                amountTextFieldMessageView.isHidden = true
-                updateAmount(destinationAddress: addressTextField.text!, amountToSend: amountTextField.text!)
-                continueButton.setStyle(.filled, fillColor: .brightSkyBlue, title: "CALCULATE FEE", fontSize: 16)
-                continueButton.enable(.filled, fillColor: .brightSkyBlue)
-            } else if (amountInput > revuBalance) {
-                continueButton.disable(.filled)
-//                amountTextField.hideErrorMessage()
-//                amountTextField.showErrorMessage(message: "Not enough REVU to send this transaction.")
-                amountTextFieldMessageView.isHidden = false
-                amountTextFieldMessage.text = "Not enough \(selectedToken?.displayName ?? "REVU") to send this transaction."
-                let generator = UINotificationFeedbackGenerator()
-                generator.notificationOccurred(.warning)
-            } else {
-                continueButton.disable(.filled)
-//                amountTextField.hideErrorMessage()
-//                amountTextField.showErrorMessage(message: "Account balance needs to be at least \(minAdaToSend) ADA to send MAX tokens or more than 3 ADA to send partial amount of tokens.")
-                amountTextFieldMessageView.isHidden = false
-                amountTextFieldMessage.text = "Account balance needs to be at least \(minAdaToSend) ADA to send MAX tokens or more than 3 ADA to send partial amount of tokens."
-                let generator = UINotificationFeedbackGenerator()
-                generator.notificationOccurred(.warning)
+                
+                continueButton.setStyle(fillColor: .primaryBlue, title: "CALCULATE FEE", fontSize: 16)
+                continueButton.enable(fillColor: .primaryBlue)
             }
         }
     }
 }
-*/
+
