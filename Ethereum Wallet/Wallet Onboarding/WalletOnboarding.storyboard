@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mlq-Y4-iPE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--InWallet-->
+        <scene sceneID="ErO-FJ-Iiz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="InWallet" id="cFd-DQ-d1c" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9AJ-Yj-aDH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="699" y="-47"/>
+        </scene>
+        <!--CreateWallet-->
+        <scene sceneID="IfE-bt-GUd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateWallet" id="DAd-xh-qHg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HUr-R6-oEM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="149"/>
+        </scene>
+        <!--RestoreWallet-->
+        <scene sceneID="kH3-zN-T6q">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RestoreWallet" id="lM1-YG-LAx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v4f-HW-Vkd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="725" y="203"/>
+        </scene>
+        <!--Wallets View Controller-->
+        <scene sceneID="oDN-v9-vls">
+            <objects>
+                <viewController storyboardIdentifier="WalletsViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mlq-Y4-iPE" customClass="WalletsViewController" customModule="Ethereum_Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="njk-S0-OTL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Wallets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRK-er-hEV">
+                                <rect key="frame" x="16" y="76" width="129" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-illustration" translatesAutoresizingMaskIntoConstraints="NO" id="RSE-9z-JFf">
+                                <rect key="frame" x="64" y="218" width="286" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="0xa-br-sm1"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="29" translatesAutoresizingMaskIntoConstraints="NO" id="pu5-WM-69j">
+                                <rect key="frame" x="0.0" y="123.5" width="414" height="590.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="walletCell" id="3ZL-m7-Epj" customClass="WalletTableViewCell" customModule="Ethereum_Wallet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="86"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3ZL-m7-Epj" id="28S-N0-U70">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22J-oU-WNe">
+                                                    <rect key="frame" x="16" y="4" width="382" height="78"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eth-logo" translatesAutoresizingMaskIntoConstraints="NO" id="guB-gH-VIv">
+                                                            <rect key="frame" x="16" y="15" width="48" height="48"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="48" id="Hdw-Cj-JUg"/>
+                                                                <constraint firstAttribute="height" constant="48" id="oV1-rQ-nwc"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipToBounds" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="24"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsA-OK-wBR">
+                                                            <rect key="frame" x="87" y="23" width="279" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="22" id="LhC-Rx-AA5"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxo-Zf-jGe">
+                                                            <rect key="frame" x="87" y="45" width="279" height="13"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="13" id="FLb-qb-tyC"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <color key="textColor" systemColor="systemGrayColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="guB-gH-VIv" firstAttribute="leading" secondItem="22J-oU-WNe" secondAttribute="leading" constant="16" id="9FS-lc-v8B"/>
+                                                        <constraint firstItem="SsA-OK-wBR" firstAttribute="leading" secondItem="guB-gH-VIv" secondAttribute="trailing" constant="23" id="BJH-pN-gPu"/>
+                                                        <constraint firstItem="wxo-Zf-jGe" firstAttribute="leading" secondItem="SsA-OK-wBR" secondAttribute="leading" id="D9B-1u-n9N"/>
+                                                        <constraint firstItem="wxo-Zf-jGe" firstAttribute="trailing" secondItem="SsA-OK-wBR" secondAttribute="trailing" id="Std-rv-PRF"/>
+                                                        <constraint firstItem="wxo-Zf-jGe" firstAttribute="top" secondItem="SsA-OK-wBR" secondAttribute="bottom" id="VRT-9q-aov"/>
+                                                        <constraint firstAttribute="trailing" secondItem="SsA-OK-wBR" secondAttribute="trailing" constant="16" id="ecQ-d2-39V"/>
+                                                        <constraint firstItem="guB-gH-VIv" firstAttribute="centerY" secondItem="22J-oU-WNe" secondAttribute="centerY" id="lsx-FE-OCY"/>
+                                                        <constraint firstAttribute="height" constant="78" id="ohL-QU-27a"/>
+                                                        <constraint firstItem="SsA-OK-wBR" firstAttribute="top" secondItem="guB-gH-VIv" secondAttribute="top" constant="8" id="u3s-Zw-suM"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="22J-oU-WNe" firstAttribute="leading" secondItem="28S-N0-U70" secondAttribute="leading" constant="16" id="IG0-ys-lL7"/>
+                                                <constraint firstItem="22J-oU-WNe" firstAttribute="top" secondItem="28S-N0-U70" secondAttribute="top" constant="4" id="LzJ-EF-FH9"/>
+                                                <constraint firstAttribute="bottom" secondItem="22J-oU-WNe" secondAttribute="bottom" constant="4" id="PTh-D4-1Sf"/>
+                                                <constraint firstAttribute="trailing" secondItem="22J-oU-WNe" secondAttribute="trailing" constant="16" id="mAe-3c-YJL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="containerView" destination="22J-oU-WNe" id="xNZ-4V-KcE"/>
+                                            <outlet property="walletName" destination="SsA-OK-wBR" id="bw7-6o-fpx"/>
+                                            <segue destination="cFd-DQ-d1c" kind="showDetail" id="J9r-ST-bUs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Mlq-Y4-iPE" id="hLC-Tr-p1s"/>
+                                    <outlet property="delegate" destination="Mlq-Y4-iPE" id="IAj-L6-Qco"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4E-zM-CjI">
+                                <rect key="frame" x="16" y="738" width="382" height="48"/>
+                                <color key="backgroundColor" name="Primary Blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="ePD-Bq-nIr"/>
+                                </constraints>
+                                <state key="normal" title="CREATE WALLET">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="DAd-xh-qHg" kind="showDetail" id="Vc8-4g-w1e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIx-X3-wG5">
+                                <rect key="frame" x="16" y="798" width="382" height="48"/>
+                                <color key="backgroundColor" name="Primary Blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="SsG-pH-or9"/>
+                                </constraints>
+                                <state key="normal" title="RESTORE WALLET">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="lM1-YG-LAx" kind="showDetail" id="dpZ-pd-djL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b3Q-Ay-rlj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b3Q-Ay-rlj" firstAttribute="bottom" secondItem="nIx-X3-wG5" secondAttribute="bottom" constant="16" id="2yo-LM-2Au"/>
+                            <constraint firstItem="nIx-X3-wG5" firstAttribute="top" secondItem="m4E-zM-CjI" secondAttribute="bottom" constant="12" id="3UO-O4-YpZ"/>
+                            <constraint firstItem="b3Q-Ay-rlj" firstAttribute="trailing" secondItem="nIx-X3-wG5" secondAttribute="trailing" constant="16" id="70c-Zz-Kjk"/>
+                            <constraint firstItem="gRK-er-hEV" firstAttribute="leading" secondItem="b3Q-Ay-rlj" secondAttribute="leading" constant="16" id="7Yv-rJ-XSz"/>
+                            <constraint firstItem="b3Q-Ay-rlj" firstAttribute="trailing" secondItem="m4E-zM-CjI" secondAttribute="trailing" constant="16" id="EV5-TQ-bjF"/>
+                            <constraint firstItem="pu5-WM-69j" firstAttribute="top" secondItem="gRK-er-hEV" secondAttribute="bottom" constant="16" id="LpJ-If-L7h"/>
+                            <constraint firstItem="pu5-WM-69j" firstAttribute="trailing" secondItem="b3Q-Ay-rlj" secondAttribute="trailing" id="Ne9-w5-hwJ"/>
+                            <constraint firstItem="m4E-zM-CjI" firstAttribute="top" secondItem="pu5-WM-69j" secondAttribute="bottom" constant="24" id="Qx7-Uj-2WV"/>
+                            <constraint firstItem="nIx-X3-wG5" firstAttribute="centerX" secondItem="njk-S0-OTL" secondAttribute="centerX" id="RsE-0p-XX3"/>
+                            <constraint firstItem="gRK-er-hEV" firstAttribute="top" secondItem="b3Q-Ay-rlj" secondAttribute="top" constant="32" id="d6k-LQ-CHX"/>
+                            <constraint firstItem="pu5-WM-69j" firstAttribute="leading" secondItem="b3Q-Ay-rlj" secondAttribute="leading" id="eFs-kO-W9O"/>
+                            <constraint firstItem="RSE-9z-JFf" firstAttribute="leading" secondItem="njk-S0-OTL" secondAttribute="leading" constant="64" id="eaE-6d-vML"/>
+                            <constraint firstItem="RSE-9z-JFf" firstAttribute="centerY" secondItem="njk-S0-OTL" secondAttribute="centerY" constant="-80" id="gqC-dP-2xa"/>
+                            <constraint firstItem="nIx-X3-wG5" firstAttribute="leading" secondItem="b3Q-Ay-rlj" secondAttribute="leading" constant="16" id="mes-eU-yAv"/>
+                            <constraint firstItem="m4E-zM-CjI" firstAttribute="leading" secondItem="b3Q-Ay-rlj" secondAttribute="leading" constant="16" id="rLM-Ng-5iN"/>
+                            <constraint firstItem="m4E-zM-CjI" firstAttribute="centerX" secondItem="njk-S0-OTL" secondAttribute="centerX" id="s16-wv-8Fz"/>
+                            <constraint firstAttribute="trailing" secondItem="RSE-9z-JFf" secondAttribute="trailing" constant="64" id="u52-Wa-0VY"/>
+                            <constraint firstItem="RSE-9z-JFf" firstAttribute="centerX" secondItem="njk-S0-OTL" secondAttribute="centerX" id="uwE-6N-vUp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="createWalletButton" destination="m4E-zM-CjI" id="TP6-QG-ERq"/>
+                        <outlet property="restoreWalletButton" destination="nIx-X3-wG5" id="9iO-Wn-vFa"/>
+                        <outlet property="walletsTableView" destination="pu5-WM-69j" id="yTr-3O-H4R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OhB-VA-GCc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="43" y="31"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="empty-illustration" width="1103" height="805"/>
+        <image name="eth-logo" width="2880" height="1800"/>
+        <namedColor name="Primary Blue">
+            <color red="0.070588235294117646" green="0.63529411764705879" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
