@@ -77,13 +77,13 @@ extension ConfirmRecoveryPhraseViewController: UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         guard validateTextFields(textField as! MDCOutlinedTextField) else { return }
         
-        confirmButton.enable(fillColor: .brightSkyBlue)
+        confirmButton.enable(fillColor: .primaryBlue)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard validateTextFields(textField as! MDCOutlinedTextField) else { return }
         
-        confirmButton.enable(fillColor: .brightSkyBlue)
+        confirmButton.enable(fillColor: .primaryBlue)
         
         //generateShelleyAddresses(mnemonicWords: mnemonics.joined(separator:" "))
         generatingWalletLabel.isHidden = false
@@ -113,7 +113,7 @@ extension ConfirmRecoveryPhraseViewController: UITextFieldDelegate {
 // MARK: - Button Functions
 extension ConfirmRecoveryPhraseViewController {
     func loadButtonsLayout() {
-        confirmButton.setStyle(fillColor: .brightSkyBlue, title: "CONFIRM", fontSize: 16)
+        confirmButton.setStyle(fillColor: .primaryBlue, title: "CONFIRM", fontSize: 16)
         confirmButton.disable()
     }
 }

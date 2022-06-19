@@ -47,8 +47,8 @@ class VerifyRestoredWalletViewController: UIViewController {
 // MARK: - Functions
 extension VerifyRestoredWalletViewController {
     func setupButtons() {
-        continueButton.setStyle(fillColor: .brightSkyBlue, title: "CONTINUE", fontSize: 16)
-        continueButton.enable(fillColor: .brightSkyBlue)
+        continueButton.setStyle(fillColor: .primaryBlue, title: "CONTINUE", fontSize: 16)
+        continueButton.enable(fillColor: .primaryBlue)
     }
     
     func loadAddress() {
@@ -85,7 +85,7 @@ extension VerifyRestoredWalletViewController: UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? AddressTableViewCell {
-            cell.containerView.layer.applySketchShadow(color: .brightSkyBlue, alpha: 0.5, x: 0, y: 0, blur: 10, spread: 0)
+            cell.containerView.layer.applySketchShadow(color: .primaryBlue, alpha: 0.5, x: 0, y: 0, blur: 10, spread: 0)
             print("Highlited")
         }
         

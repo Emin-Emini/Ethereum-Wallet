@@ -15,7 +15,7 @@ extension UIColor {
     //Remove
     
     //Primary
-    static let brightSkyBlue = rgb(18, 162, 246) //rgb(0, 210, 255)
+    static let primaryBlue = rgb(70, 82, 246) //rgb(0, 210, 255)
     static let brightSkyBlue3 = rgb(191, 244, 255)
     static let brightCyanBlue = rgb(62, 207, 253)
     static let paleSkyBlue = rgb(187, 235, 251)

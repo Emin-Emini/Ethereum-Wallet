@@ -107,7 +107,7 @@ extension CreateWalletViewController: UITextFieldDelegate {
             return
         }
         confirmPassTextField.hideErrorMessage()
-        continueButton.enable(fillColor: .brightSkyBlue)
+        continueButton.enable(fillColor: .primaryBlue)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -140,7 +140,7 @@ extension CreateWalletViewController {
         confirmPassButton.setImage(UIImage(named: "ic-eyeOn"), for: .selected)
         confirmPassButton.setImage(UIImage(named: "ic-eyeOff"), for: .normal)
         
-        continueButton.setStyle(fillColor: .brightSkyBlue, title: "CONTINUE", fontSize: 16)
+        continueButton.setStyle(fillColor: .primaryBlue, title: "CONTINUE", fontSize: 16)
         continueButton.disable()
     }
 }

@@ -94,7 +94,7 @@ extension NewCredentialsRestoreWalletViewController: UITextFieldDelegate {
             return
         }
         confirmWalletPassTextField.hideErrorMessage()
-        continueButton.enable(fillColor: .brightSkyBlue)
+        continueButton.enable(fillColor: .primaryBlue)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -119,7 +119,7 @@ extension NewCredentialsRestoreWalletViewController {
         confirmPassButton.setImage(UIImage(named: "ic-eyeOn"), for: .normal)
         confirmPassButton.setImage(UIImage(named: "ic-eyeOff"), for: .selected)
         
-        continueButton.setStyle(fillColor: .brightSkyBlue, title: "CONTINUE", fontSize: 16)
+        continueButton.setStyle(fillColor: .primaryBlue, title: "CONTINUE", fontSize: 16)
         continueButton.disable()
     }
 }

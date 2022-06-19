@@ -55,7 +55,7 @@ extension PhraseRestoreWalletViewController: UITextFieldDelegate {
             return
         }
         phraseConfirmationTextField.hideErrorMessage()
-        restoreWalletButton.enable(fillColor: .brightSkyBlue)
+        restoreWalletButton.enable(fillColor: .primaryBlue)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -70,14 +70,14 @@ extension PhraseRestoreWalletViewController: UITextFieldDelegate {
         let trimmedString = phraseConfirmationTextField.text!.trimmingCharacters(in: .whitespaces)
         phraseConfirmationTextField.text = trimmedString.condenseWhitespace()
         
-        restoreWalletButton.enable(fillColor: .brightSkyBlue)
+        restoreWalletButton.enable(fillColor: .primaryBlue)
     }
 }
 
 // MARK: - Buttons
 extension PhraseRestoreWalletViewController {
     func setupButtons() {
-        restoreWalletButton.setStyle(fillColor: .brightSkyBlue, title: "RESTORE WALLET", fontSize: 16)
+        restoreWalletButton.setStyle(fillColor: .primaryBlue, title: "RESTORE WALLET", fontSize: 16)
         restoreWalletButton.disable()
     }
 }

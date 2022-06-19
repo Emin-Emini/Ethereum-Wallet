@@ -115,7 +115,7 @@ extension SendViewController {
 // MARK: - Buttons Setup
 extension SendViewController {
     func setupButtons() {
-        continueButton.setStyle(fillColor: .brightSkyBlue, title: "CONTINUE", fontSize: 16)
+        continueButton.setStyle(fillColor: .primaryBlue, title: "CONTINUE", fontSize: 16)
         continueButton.disable()
     }
 }
@@ -183,7 +183,7 @@ extension SendViewController: UITextFieldDelegate {
             return
         }
         
-        continueButton.enable(fillColor: .brightSkyBlue)
+        continueButton.enable(fillColor: .primaryBlue)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -206,7 +206,7 @@ extension SendViewController: UITextFieldDelegate {
             return
         }
         
-        continueButton.enable(fillColor: .brightSkyBlue)
+        continueButton.enable(fillColor: .primaryBlue)
     }
     
     /// UITextFieldDelegate functions -> shouldChangeCharactersIn Range this functions is used to not to allow space in the text field.

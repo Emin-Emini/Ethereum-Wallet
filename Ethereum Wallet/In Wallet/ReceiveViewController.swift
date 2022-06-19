@@ -144,7 +144,7 @@ extension ReceiveViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         if cell.isHighlighted {
             let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressTableViewCell
-            cell.containerView.layer.applySketchShadow(color: .brightSkyBlue, alpha: 0.5, x: 0, y: 0, blur: 10, spread: 0)
+            cell.containerView.layer.applySketchShadow(color: .primaryBlue, alpha: 0.5, x: 0, y: 0, blur: 10, spread: 0)
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressTableViewCell
             cell.containerView.layer.applySketchShadow(color: .black, alpha: 0.1, x: 0, y: 0, blur: 10, spread: 0)
@@ -155,7 +155,7 @@ extension ReceiveViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressTableViewCell
-        cell.containerView.layer.applySketchShadow(color: .brightSkyBlue, alpha: 0.5, x: 0, y: 0, blur: 10, spread: 0)
+        cell.containerView.layer.applySketchShadow(color: .primaryBlue, alpha: 0.5, x: 0, y: 0, blur: 10, spread: 0)
         if indexPath.section == 0 {
             UIPasteboard.general.string = arrayOfAddresses[indexPath.row]
             //self.showToastTop(message: "Address has been copied", duration: 2.0)
@@ -166,7 +166,7 @@ extension ReceiveViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? AddressTableViewCell {
-            cell.containerView.layer.applySketchShadow(color: .brightSkyBlue, alpha: 0.5, x: 0, y: 0, blur: 10, spread: 0)
+            cell.containerView.layer.applySketchShadow(color: .primaryBlue, alpha: 0.5, x: 0, y: 0, blur: 10, spread: 0)
             print("Highlited")
         }
         

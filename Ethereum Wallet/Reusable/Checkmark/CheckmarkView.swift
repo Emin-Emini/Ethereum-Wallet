@@ -62,7 +62,7 @@ class CheckmarkView: UIView {
 
     func checkCheckmark() {
         imvCheckmark.tintColor = .white
-        view.backgroundColor = .brightSkyBlue
+        view.backgroundColor = .primaryBlue
         self.layer.borderWidth = 0
         self.layer.borderColor = UIColor.clear.cgColor
     }

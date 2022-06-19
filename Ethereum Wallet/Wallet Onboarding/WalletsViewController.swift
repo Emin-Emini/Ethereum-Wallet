@@ -53,8 +53,8 @@ class WalletsViewController: ViewController {
 // MARK: - Layout Functions
 extension WalletsViewController {
     func loadLayout() {
-        createWalletButton.setStyle(fillColor: .brightSkyBlue, title: "CREATE WALLET", titleColor: .white, fontSize: 16)
-        restoreWalletButton.setStyle(fillColor: .brightSkyBlue, title: "RESTORE WALLET", titleColor: .white, fontSize: 16)
+        createWalletButton.setStyle(fillColor: .primaryBlue, title: "CREATE WALLET", titleColor: .white, fontSize: 16)
+        restoreWalletButton.setStyle(fillColor: .primaryBlue, title: "RESTORE WALLET", titleColor: .white, fontSize: 16)
     }
 }
 
