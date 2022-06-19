@@ -8,6 +8,7 @@
 import UIKit
 import MaterialComponents.MaterialTextControls_FilledTextFields
 import SwiftKeychainWrapper
+import web3swift
 
 class SendViewController: UIViewController {
     
@@ -81,14 +82,34 @@ class SendViewController: UIViewController {
     @IBAction func continueSending(_ sender: Any) {
         //continuSendingButton(isFeeCalculated: isFeeCalculated)
     }
-    
-    // MARK: - Helpers
-    
 }
 
 // MARK: - Unwing Functions
 extension SendViewController {
     
+}
+
+// MARK: - Sign Tx Function
+extension SendViewController {
+    func signTransaction() {
+        let web3 = Web3.InfuraMainnetWeb3()
+        let value: String = amountTextField.text ?? "0.0"
+        guard let myAddressString = arrayOfAddresses.first else { return }
+        let walletAddress = EthereumAddress(myAddressString)! // Your wallet address
+        let toAddress = EthereumAddress(addressTextField.text!)!
+        let contract = web3.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
+        let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
+        var options = TransactionOptions.defaultOptions
+        options.value = amount
+        options.from = walletAddress
+        options.gasPrice = .automatic
+        options.gasLimit = .automatic
+        let tx = contract.write(
+        "fallback",
+        parameters: [AnyObject](),
+        extraData: Data(),
+        transactionOptions: options)!
+    }
 }
 
 // MARK: - Buttons Setup
@@ -111,7 +132,7 @@ extension SendViewController: UITextFieldDelegate {
         addressTextField.defaultStyle(label: "Address", placeholder: "Address")
         
         setupScanAddresIcon()
-        addKeyboardObservers()
+        //addKeyboardObservers()
     }
     
     func setupScanAddresIcon() {
@@ -161,6 +182,8 @@ extension SendViewController: UITextFieldDelegate {
             continueButton.disable()
             return
         }
+        
+        continueButton.enable(fillColor: .brightSkyBlue)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -183,6 +206,7 @@ extension SendViewController: UITextFieldDelegate {
             return
         }
         
+        continueButton.enable(fillColor: .brightSkyBlue)
     }
     
     /// UITextFieldDelegate functions -> shouldChangeCharactersIn Range this functions is used to not to allow space in the text field.
@@ -213,30 +237,6 @@ extension SendViewController: UITextFieldDelegate {
         return true
     }
 }
-
-// MARK: - Keyboard Will Show
-extension SendViewController {
-    func addKeyboardObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//            if self.view.frame.origin.y == 0 {
-//                self.view.frame.origin.y -= keyboardSize.height
-//            }
-//        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-//        if self.view.frame.origin.y != 0 {
-//            self.view.frame.origin.y = 0
-//        }
-    }
-}
-
-
 
 /*
 // MARK: - Send Validations
