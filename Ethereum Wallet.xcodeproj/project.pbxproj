@@ -35,6 +35,11 @@
 		19C504992841288500AA964C /* CreateWallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C504982841288500AA964C /* CreateWallet.storyboard */; };
 		19C5049B284128A800AA964C /* CreateWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C5049A284128A800AA964C /* CreateWalletViewController.swift */; };
 		19CA1BC1285F74660005183B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA1BC0285F74660005183B /* UIViewController+Extension.swift */; };
+		19CA1BD4285F85440005183B /* ChangeWalletPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA1BCB285F85440005183B /* ChangeWalletPasswordViewController.swift */; };
+		19CA1BD5285F85440005183B /* RemoveWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA1BCD285F85440005183B /* RemoveWalletViewController.swift */; };
+		19CA1BD6285F85440005183B /* WalletSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA1BCE285F85440005183B /* WalletSettingsViewController.swift */; };
+		19CA1BD7285F85440005183B /* ChangeWalletNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA1BD0285F85440005183B /* ChangeWalletNameViewController.swift */; };
+		19CA1BD8285F85440005183B /* WalletSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19CA1BD1285F85440005183B /* WalletSettings.storyboard */; };
 		19D6A7242845140B0069E84B /* InWallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D6A7232845140B0069E84B /* InWallet.storyboard */; };
 		19D6A7262845196A0069E84B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A7252845196A0069E84B /* DashboardViewController.swift */; };
 		19D6A729284528D60069E84B /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A728284528D60069E84B /* ReceiveViewController.swift */; };
@@ -73,6 +78,11 @@
 		19C504982841288500AA964C /* CreateWallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateWallet.storyboard; sourceTree = "<group>"; };
 		19C5049A284128A800AA964C /* CreateWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletViewController.swift; sourceTree = "<group>"; };
 		19CA1BC0285F74660005183B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		19CA1BCB285F85440005183B /* ChangeWalletPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeWalletPasswordViewController.swift; sourceTree = "<group>"; };
+		19CA1BCD285F85440005183B /* RemoveWalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveWalletViewController.swift; sourceTree = "<group>"; };
+		19CA1BCE285F85440005183B /* WalletSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletSettingsViewController.swift; sourceTree = "<group>"; };
+		19CA1BD0285F85440005183B /* ChangeWalletNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeWalletNameViewController.swift; sourceTree = "<group>"; };
+		19CA1BD1285F85440005183B /* WalletSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WalletSettings.storyboard; sourceTree = "<group>"; };
 		19D6A7232845140B0069E84B /* InWallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InWallet.storyboard; sourceTree = "<group>"; };
 		19D6A7252845196A0069E84B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		19D6A728284528D60069E84B /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +221,58 @@
 			path = "Restore Wallet";
 			sourceTree = "<group>";
 		};
+		19CA1BC2285F829C0005183B /* Send */ = {
+			isa = PBXGroup;
+			children = (
+				19D6A72A2845764A0069E84B /* SendViewController.swift */,
+			);
+			path = Send;
+			sourceTree = "<group>";
+		};
+		19CA1BC3285F82A10005183B /* Receive */ = {
+			isa = PBXGroup;
+			children = (
+				19D6A728284528D60069E84B /* ReceiveViewController.swift */,
+			);
+			path = Receive;
+			sourceTree = "<group>";
+		};
+		19CA1BC6285F85440005183B /* Wallet Settings */ = {
+			isa = PBXGroup;
+			children = (
+				19CA1BCA285F85440005183B /* Change Wallet Password */,
+				19CA1BCC285F85440005183B /* Remove Wallet */,
+				19CA1BCF285F85440005183B /* Change Wallet Name */,
+				19CA1BCE285F85440005183B /* WalletSettingsViewController.swift */,
+				19CA1BD1285F85440005183B /* WalletSettings.storyboard */,
+			);
+			path = "Wallet Settings";
+			sourceTree = "<group>";
+		};
+		19CA1BCA285F85440005183B /* Change Wallet Password */ = {
+			isa = PBXGroup;
+			children = (
+				19CA1BCB285F85440005183B /* ChangeWalletPasswordViewController.swift */,
+			);
+			path = "Change Wallet Password";
+			sourceTree = "<group>";
+		};
+		19CA1BCC285F85440005183B /* Remove Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				19CA1BCD285F85440005183B /* RemoveWalletViewController.swift */,
+			);
+			path = "Remove Wallet";
+			sourceTree = "<group>";
+		};
+		19CA1BCF285F85440005183B /* Change Wallet Name */ = {
+			isa = PBXGroup;
+			children = (
+				19CA1BD0285F85440005183B /* ChangeWalletNameViewController.swift */,
+			);
+			path = "Change Wallet Name";
+			sourceTree = "<group>";
+		};
 		19D6A72228440FDA0069E84B /* Wallet Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,8 +287,9 @@
 			isa = PBXGroup;
 			children = (
 				19D6A7252845196A0069E84B /* DashboardViewController.swift */,
-				19D6A72A2845764A0069E84B /* SendViewController.swift */,
-				19D6A728284528D60069E84B /* ReceiveViewController.swift */,
+				19CA1BC2285F829C0005183B /* Send */,
+				19CA1BC3285F82A10005183B /* Receive */,
+				19CA1BC6285F85440005183B /* Wallet Settings */,
 				19D6A7232845140B0069E84B /* InWallet.storyboard */,
 			);
 			path = "In Wallet";
@@ -311,6 +374,7 @@
 			files = (
 				196A0C782841650500A0E381 /* CheckmarkView.xib in Resources */,
 				196A0C9128440C5500A0E381 /* WalletOnboarding.storyboard in Resources */,
+				19CA1BD8285F85440005183B /* WalletSettings.storyboard in Resources */,
 				195835132837ED8F00881885 /* LaunchScreen.storyboard in Resources */,
 				195835102837ED8F00881885 /* Assets.xcassets in Resources */,
 				196A0C802844049B00A0E381 /* RestoreWallet.storyboard in Resources */,
@@ -368,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19CA1BD7285F85440005183B /* ChangeWalletNameViewController.swift in Sources */,
 				196A0C6228414F5200A0E381 /* RecoveryPhraseViewController.swift in Sources */,
 				196A0C84284405D100A0E381 /* PhraseRestoreWalletViewController.swift in Sources */,
 				196A0C822844058A00A0E381 /* EnglishMnemonics.swift in Sources */,
@@ -376,10 +441,12 @@
 				196A0C712841581000A0E381 /* UIButton+Extension.swift in Sources */,
 				196A0C8F2844089300A0E381 /* NewCredentialsRestoreWalletViewController.swift in Sources */,
 				196A0C882844070000A0E381 /* VerifyRestoredWalletViewController.swift in Sources */,
+				19CA1BD6285F85440005183B /* WalletSettingsViewController.swift in Sources */,
 				196A0C8C284407CC00A0E381 /* CALayer+Extension.swift in Sources */,
 				196A0C732841622200A0E381 /* ConfirmCreateWalletViewController.swift in Sources */,
 				196A0C6E2841566200A0E381 /* UIColor+Extension.swift in Sources */,
 				196A0C86284406BE00A0E381 /* String+Extension.swift in Sources */,
+				19CA1BD5285F85440005183B /* RemoveWalletViewController.swift in Sources */,
 				196A0C8A2844077200A0E381 /* AddressTableViewCell.swift in Sources */,
 				19CA1BC1285F74660005183B /* UIViewController+Extension.swift in Sources */,
 				195835072837ED8D00881885 /* AppDelegate.swift in Sources */,
@@ -390,6 +457,7 @@
 				196A0C642841521E00A0E381 /* PhraseWordCollectionViewCell.swift in Sources */,
 				196A0C752841627E00A0E381 /* CheckmarkView.swift in Sources */,
 				19D6A72B2845764A0069E84B /* SendViewController.swift in Sources */,
+				19CA1BD4285F85440005183B /* ChangeWalletPasswordViewController.swift in Sources */,
 				19D6A7262845196A0069E84B /* DashboardViewController.swift in Sources */,
 				196A0C68284152A900A0E381 /* ConfirmRecoveryPhraseViewController.swift in Sources */,
 				196A0C7D28425DA000A0E381 /* WalletsViewController.swift in Sources */,

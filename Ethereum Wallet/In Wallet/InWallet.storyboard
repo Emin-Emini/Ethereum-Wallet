@@ -153,6 +153,9 @@
                                                         <rect key="frame" x="35.5" y="0.0" width="54.5" height="46"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <segue destination="XUe-VP-YYA" kind="showDetail" id="qaA-Et-Xqw"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -233,6 +236,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oP-VX-Tw3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="643" y="-151"/>
+        </scene>
+        <!--WalletSettings-->
+        <scene sceneID="dVg-xQ-wjq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WalletSettings" id="XUe-VP-YYA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkL-cj-tXh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1417" y="-151"/>
         </scene>
         <!--Receive-->
         <scene sceneID="LZM-Q5-JJ6">
