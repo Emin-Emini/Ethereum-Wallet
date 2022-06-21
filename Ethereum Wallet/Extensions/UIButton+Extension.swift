@@ -29,8 +29,8 @@ extension UIButton {
         self.isEnabled = true
     }
     
-    func disable(textColor: UIColor = .grey3) {
-        self.backgroundColor = .grey4
+    func disable(textColor: UIColor = .systemBackground) {
+        self.backgroundColor = .secondaryLabel
         
         self.setTitleColor(textColor, for: .normal)
         self.tintColor = textColor
