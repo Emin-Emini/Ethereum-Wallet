@@ -41,6 +41,7 @@
 		19CA1BD7285F85440005183B /* ChangeWalletNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA1BD0285F85440005183B /* ChangeWalletNameViewController.swift */; };
 		19CA1BD8285F85440005183B /* WalletSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19CA1BD1285F85440005183B /* WalletSettings.storyboard */; };
 		19CA1BDA2862167D0005183B /* FiatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA1BD92862167D0005183B /* FiatModel.swift */; };
+		19CA1BDC286219CA0005183B /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA1BDB286219CA0005183B /* Double+Extension.swift */; };
 		19D6A7242845140B0069E84B /* InWallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D6A7232845140B0069E84B /* InWallet.storyboard */; };
 		19D6A7262845196A0069E84B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A7252845196A0069E84B /* DashboardViewController.swift */; };
 		19D6A729284528D60069E84B /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A728284528D60069E84B /* ReceiveViewController.swift */; };
@@ -85,6 +86,7 @@
 		19CA1BD0285F85440005183B /* ChangeWalletNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeWalletNameViewController.swift; sourceTree = "<group>"; };
 		19CA1BD1285F85440005183B /* WalletSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WalletSettings.storyboard; sourceTree = "<group>"; };
 		19CA1BD92862167D0005183B /* FiatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatModel.swift; sourceTree = "<group>"; };
+		19CA1BDB286219CA0005183B /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		19D6A7232845140B0069E84B /* InWallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InWallet.storyboard; sourceTree = "<group>"; };
 		19D6A7252845196A0069E84B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		19D6A728284528D60069E84B /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				196A0C8B284407CC00A0E381 /* CALayer+Extension.swift */,
 				196A0C85284406BE00A0E381 /* String+Extension.swift */,
 				19CA1BC0285F74660005183B /* UIViewController+Extension.swift */,
+				19CA1BDB286219CA0005183B /* Double+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				196A0C822844058A00A0E381 /* EnglishMnemonics.swift in Sources */,
 				19C5049B284128A800AA964C /* CreateWalletViewController.swift in Sources */,
 				1958350B2837ED8D00881885 /* ViewController.swift in Sources */,
+				19CA1BDC286219CA0005183B /* Double+Extension.swift in Sources */,
 				196A0C712841581000A0E381 /* UIButton+Extension.swift in Sources */,
 				196A0C8F2844089300A0E381 /* NewCredentialsRestoreWalletViewController.swift in Sources */,
 				196A0C882844070000A0E381 /* VerifyRestoredWalletViewController.swift in Sources */,

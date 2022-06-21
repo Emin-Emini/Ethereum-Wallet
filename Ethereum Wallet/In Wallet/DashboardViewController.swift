@@ -9,6 +9,7 @@ import UIKit
 import HDWalletKit
 import web3swift
 import SwiftKeychainWrapper
+import Alamofire
 
 class DashboardViewController: UIViewController {
 
@@ -28,7 +29,10 @@ class DashboardViewController: UIViewController {
     @IBAction func goBack(_ sender: Any) {
         self.dismiss(animated: true)
     }
-    
+}
+
+// MARK: Setup Wallet from Blockchain
+extension DashboardViewController {
     func setupWallet() {
         
         guard let keychainAddressesString = KeychainWrapper.standard.string(forKey: "walletAddresses") else {
@@ -45,8 +49,21 @@ class DashboardViewController: UIViewController {
         
         walletBalanceLabel.text = "\(amountInDouble) ETH"
         MyWallet.amount = amountInDouble
+        
+        getEthereumCurrentPrice()
         //print(balance)
         //print(balanceString)
     }
+}
 
+// MARK: - Get ETH price
+extension DashboardViewController {
+    func getEthereumCurrentPrice() {
+        let url = "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR"
+        AF.request(url).validate().responseDecodable(of: FiatModel.self) { (response) in
+            guard let price = response.value else { return }
+            print(price.USD)
+            self.usdBalanceLabel.text = "$\((price.USD * MyWallet.amount).rounded(toPlaces: 4))"
+          }
+    }
 }
