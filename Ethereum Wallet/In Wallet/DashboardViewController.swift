@@ -14,6 +14,7 @@ class DashboardViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var walletBalanceLabel: UILabel!
+    @IBOutlet weak var usdBalanceLabel: UILabel!
     
     // MARK: - View
     override func viewDidLoad() {
