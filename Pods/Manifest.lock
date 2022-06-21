@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.5.0)
   - BigInt (4.0.0)
   - CryptoSwift (1.0.0)
   - HDWalletKit (0.3.6):
@@ -633,6 +634,7 @@ PODS:
     - Starscream (~> 3.1.0)
 
 DEPENDENCIES:
+  - Alamofire
   - HDWalletKit
   - MaterialComponents (~> 109.2.0)
   - MnemonicSwift
@@ -641,6 +643,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - BigInt
     - CryptoSwift
     - HDWalletKit
@@ -658,6 +661,7 @@ SPEC REPOS:
     - web3swift
 
 SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   BigInt: 2aad1a9942dc932ec8b84290d2c564a3d76f97ab
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   HDWalletKit: 6d97a15404b2edfe3418e3dc064faa967e51dac4
@@ -674,6 +678,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
   web3swift: 0f097eafe1d08f478694b882581b85a01afb6633
 
-PODFILE CHECKSUM: 34579524dbc6c2eb316636842f04b340f2bdccb4
+PODFILE CHECKSUM: c639a2cef47896de6a655566356013c870edd321
 
 COCOAPODS: 1.11.2
