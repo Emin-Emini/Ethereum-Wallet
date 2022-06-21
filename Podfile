@@ -11,4 +11,5 @@ target 'Ethereum Wallet' do
   pod 'web3swift'
   pod 'SwiftKeychainWrapper', '~> 3.4.0'
   pod 'MaterialComponents', '~> 109.2.0'
+  pod 'Alamofire'
 end
