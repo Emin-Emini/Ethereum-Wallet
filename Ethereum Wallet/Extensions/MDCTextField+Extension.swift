@@ -18,18 +18,18 @@ extension MDCFilledTextField {
         self.setFilledBackgroundColor(.clear, for: .editing)
                 
         self.label.font = UIFont.systemFont(ofSize: 15)
-        self.setNormalLabelColor(.grey3, for: .normal)
-        self.setFloatingLabelColor(.neutralDark, for: .editing)
-        self.setFloatingLabelColor(.neutralDark, for: .normal)
+        self.setNormalLabelColor(.secondaryLabel, for: .normal)
+        self.setFloatingLabelColor(.label, for: .editing)
+        self.setFloatingLabelColor(.label, for: .normal)
                 
         self.font = UIFont.systemFont(ofSize: 15)
-        self.setTextColor(.neutralDark, for: .editing)
-        self.setTextColor(.neutralDark, for: .normal)
+        self.setTextColor(.label, for: .editing)
+        self.setTextColor(.label, for: .normal)
         
         self.leadingAssistiveLabel.font = UIFont.systemFont(ofSize: 13)
-        self.setLeadingAssistiveLabelColor(.grey3, for: .editing)
+        self.setLeadingAssistiveLabelColor(.secondaryLabel, for: .editing)
                 
-        self.setUnderlineColor(.grey3, for: .normal)
+        self.setUnderlineColor(.secondaryLabel, for: .normal)
         self.setUnderlineColor(.primaryBlue, for: .editing)
     }
     
@@ -65,17 +65,17 @@ extension MDCFilledTextField {
     }
     
     func showUnderline() {
-        self.setUnderlineColor(.grey3, for: .normal)
+        self.setUnderlineColor(.secondaryLabel, for: .normal)
         self.setUnderlineColor(.primaryBlue, for: .editing)
     }
     
     private func normalLayout() {
-        self.setUnderlineColor(.grey3, for: .normal)
+        self.setUnderlineColor(.secondaryLabel, for: .normal)
         self.setUnderlineColor(.primaryBlue, for: .editing)
-        self.setFloatingLabelColor(.neutralDark, for: .normal)
-        self.setFloatingLabelColor(.neutralDark, for: .editing)
-        self.setLeadingAssistiveLabelColor(.grey3, for: .normal)
-        self.setLeadingAssistiveLabelColor(.grey3, for: .editing)
+        self.setFloatingLabelColor(.label, for: .normal)
+        self.setFloatingLabelColor(.label, for: .editing)
+        self.setLeadingAssistiveLabelColor(.secondaryLabel, for: .normal)
+        self.setLeadingAssistiveLabelColor(.secondaryLabel, for: .editing)
     }
 }
 
@@ -85,20 +85,20 @@ extension MDCOutlinedTextField {
         self.label.text = label
         self.placeholder = placeholder
         
-        self.setOutlineColor(.grey3, for: .normal)
+        self.setOutlineColor(.secondaryLabel, for: .normal)
         self.setOutlineColor(.primaryBlue, for: .editing)
                 
         self.label.font = UIFont.systemFont(ofSize: 15)
-        self.setNormalLabelColor(.grey3, for: .normal)
-        self.setFloatingLabelColor(.neutralDark, for: .editing)
-        self.setFloatingLabelColor(.neutralDark, for: .normal)
+        self.setNormalLabelColor(.secondaryLabel, for: .normal)
+        self.setFloatingLabelColor(.label, for: .editing)
+        self.setFloatingLabelColor(.label, for: .normal)
                 
         self.font = UIFont.systemFont(ofSize: 15)
-        self.setTextColor(.neutralDark, for: .editing)
-        self.setTextColor(.neutralDark, for: .normal)
+        self.setTextColor(.label, for: .editing)
+        self.setTextColor(.label, for: .normal)
         
         self.leadingAssistiveLabel.font = UIFont.systemFont(ofSize: 12)
-        self.setLeadingAssistiveLabelColor(.grey3, for: .editing)
+        self.setLeadingAssistiveLabelColor(.secondaryLabel, for: .editing)
     }
     
     func showErrorMessage(message: String) {
@@ -138,12 +138,12 @@ extension MDCOutlinedTextField {
     }
     
     private func normalLayout() {
-        self.setOutlineColor(.grey3, for: .normal)
+        self.setOutlineColor(.secondaryLabel, for: .normal)
         self.setOutlineColor(.primaryBlue, for: .editing)
-        self.setFloatingLabelColor(.neutralDark, for: .normal)
-        self.setFloatingLabelColor(.neutralDark, for: .editing)
-        self.setLeadingAssistiveLabelColor(.grey3, for: .normal)
-        self.setLeadingAssistiveLabelColor(.grey3, for: .editing)
+        self.setFloatingLabelColor(.label, for: .normal)
+        self.setFloatingLabelColor(.label, for: .editing)
+        self.setLeadingAssistiveLabelColor(.secondaryLabel, for: .normal)
+        self.setLeadingAssistiveLabelColor(.secondaryLabel, for: .editing)
     }
     
     func isMnemonicWordValid(with word: String) -> Bool {

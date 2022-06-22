@@ -150,7 +150,7 @@ extension SendViewController: UITextFieldDelegate {
     func validateTextFields() {
         if let addressText = addressTextField.text, addressText.isEmpty {
             addressTextField.hideErrorMessage()
-            addressTextfieldHeightConstraint.constant = 77
+            //addressTextfieldHeightConstraint.constant = 77
         }
 
         guard !amountTextField.text!.isEmpty else {
@@ -174,7 +174,7 @@ extension SendViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let addressText = addressTextField.text, addressText.isEmpty {
             addressTextField.hideErrorMessage()
-            addressTextfieldHeightConstraint.constant = 77
+            //addressTextfieldHeightConstraint.constant = 77
         }
 
         guard !amountTextField.text!.isEmpty else {
