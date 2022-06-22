@@ -168,6 +168,13 @@ extension SendViewController: UITextFieldDelegate {
             return
         }
         
+        let toAddress = EthereumAddress(addressTextField.text!)
+        
+        guard toAddress?.isValid ?? false else {
+            addressTextField.showErrorMessage(message: "Address is not valid.")
+            return
+        }
+        addressTextField.hideErrorMessage()
         continueButton.enable(fillColor: .primaryBlue)
     }
     
