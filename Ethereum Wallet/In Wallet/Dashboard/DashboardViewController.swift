@@ -37,7 +37,7 @@ class DashboardViewController: UIViewController {
     }
     
     @IBAction func goBack(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
     }
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fWr-hn-F7m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lb2-TP-AJA">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -933,12 +933,111 @@
             </objects>
             <point key="canvasLocation" x="212" y="1347"/>
         </scene>
+        <!--Change Spending Password-->
+        <scene sceneID="aeb-Lw-IXr">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="Lb2-TP-AJA" customClass="WalletAuthenticationViewController" customModule="Ethereum_Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3cC-A0-O4p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fHD-20-2Lf" customClass="MDCFilledTextField">
+                                <rect key="frame" x="16" y="140" width="382" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="73n-bi-Ldt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartInsertDeleteType="no" textContentType="password"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ff-a6-g38">
+                                <rect key="frame" x="382" y="159.5" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="dZF-ag-H6d"/>
+                                    <constraint firstAttribute="height" constant="16" id="oHp-hJ-TLg"/>
+                                </constraints>
+                                <color key="tintColor" name="Primary Blue"/>
+                                <state key="normal" image="ic-eyeOff"/>
+                                <connections>
+                                    <action selector="oldPasswordButton:" destination="Lb2-TP-AJA" eventType="touchUpInside" id="WoW-qN-kM0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ1-5N-39A">
+                                <rect key="frame" x="16" y="798" width="382" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="akF-EC-x15"/>
+                                </constraints>
+                                <state key="normal" title="SAVE CHANGES"/>
+                                <connections>
+                                    <action selector="saveChanges:" destination="Lb2-TP-AJA" eventType="touchUpInside" id="q0S-YZ-FvZ"/>
+                                    <segue destination="fWr-hn-F7m" kind="showDetail" id="hR5-Df-xTe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet Authentication" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTn-nK-nda">
+                                <rect key="frame" x="117" y="68" width="180" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="WLh-AS-ds3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgi-5e-Xi6">
+                                <rect key="frame" x="16" y="68" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="syN-wi-0Ok"/>
+                                    <constraint firstAttribute="height" constant="30" id="trq-D9-z9a"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="ic-backArrow">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goBack:" destination="fWr-hn-F7m" eventType="touchUpInside" id="gBy-Ra-0EA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="s6n-cX-kzV"/>
+                        <color key="backgroundColor" name="Background Color"/>
+                        <constraints>
+                            <constraint firstItem="gTn-nK-nda" firstAttribute="top" secondItem="s6n-cX-kzV" secondAttribute="top" constant="24" id="0cN-4w-tri"/>
+                            <constraint firstItem="dgi-5e-Xi6" firstAttribute="top" secondItem="s6n-cX-kzV" secondAttribute="top" constant="24" id="29i-Jx-NoQ"/>
+                            <constraint firstItem="fHD-20-2Lf" firstAttribute="top" secondItem="gTn-nK-nda" secondAttribute="bottom" constant="40" id="9Pr-HP-pQs"/>
+                            <constraint firstItem="6ff-a6-g38" firstAttribute="trailing" secondItem="fHD-20-2Lf" secondAttribute="trailing" id="A40-D8-izw"/>
+                            <constraint firstItem="s6n-cX-kzV" firstAttribute="trailing" secondItem="fHD-20-2Lf" secondAttribute="trailing" constant="16" id="HVO-kk-xgm"/>
+                            <constraint firstItem="6ff-a6-g38" firstAttribute="centerY" secondItem="fHD-20-2Lf" secondAttribute="centerY" id="XX8-Tv-lst"/>
+                            <constraint firstItem="MZ1-5N-39A" firstAttribute="leading" secondItem="s6n-cX-kzV" secondAttribute="leading" constant="16" id="hAL-KN-zbM"/>
+                            <constraint firstItem="dgi-5e-Xi6" firstAttribute="leading" secondItem="s6n-cX-kzV" secondAttribute="leading" constant="16" id="hug-RC-UGc"/>
+                            <constraint firstItem="gTn-nK-nda" firstAttribute="centerX" secondItem="3cC-A0-O4p" secondAttribute="centerX" id="mD4-Qe-G41"/>
+                            <constraint firstItem="fHD-20-2Lf" firstAttribute="leading" secondItem="s6n-cX-kzV" secondAttribute="leading" constant="16" id="spe-wj-el3"/>
+                            <constraint firstItem="s6n-cX-kzV" firstAttribute="bottom" secondItem="MZ1-5N-39A" secondAttribute="bottom" constant="16" id="tBJ-bd-y5m"/>
+                            <constraint firstItem="s6n-cX-kzV" firstAttribute="trailing" secondItem="MZ1-5N-39A" secondAttribute="trailing" constant="16" id="x6e-HX-Z8j"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Change Spending Password" id="9ax-Us-quz">
+                        <barButtonItem key="leftBarButtonItem" image="ic-backArrow" id="0Rp-eI-EEA">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="goBack:" destination="Lb2-TP-AJA" id="jtH-Or-nVF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="continueButton" destination="MZ1-5N-39A" id="GcS-1H-QdK"/>
+                        <outlet property="oldPassButton" destination="6ff-a6-g38" id="1k0-AR-3R3"/>
+                        <outlet property="oldPasswordTextField" destination="fHD-20-2Lf" id="Tgd-yD-jCP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aXt-FV-ABD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-329" y="-151"/>
+        </scene>
     </scenes>
     <resources>
         <image name="empty-illustration" width="500" height="500"/>
         <image name="ic-back-arrow" width="9.5" height="18"/>
         <image name="ic-backArrow" width="9.5" height="18"/>
         <image name="ic-ethereum" width="24" height="24"/>
+        <image name="ic-eyeOff" width="17" height="16"/>
         <image name="ic-receive" width="24" height="24"/>
         <image name="ic-send" width="24" height="24"/>
         <image name="ic-setting" width="32" height="32"/>
@@ -956,6 +1055,9 @@
         <namedColor name="Sky Blue">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
