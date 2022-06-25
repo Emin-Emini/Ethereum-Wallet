@@ -102,7 +102,7 @@ extension DashboardViewController {
             guard let txResult = response.value else { return }
             
             transactions = txResult.result
-            
+            self.transactionsTableView.isHidden = transactions?.count ?? 0 < 1 ? true : false
             DispatchQueue.main.async {
                 self.transactionsTableView.reloadData()
             }
