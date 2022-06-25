@@ -486,7 +486,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Change Wallet Name" id="oSu-Pe-YMf">
                         <barButtonItem key="leftBarButtonItem" image="ic-backArrow" id="OWw-oN-tXU">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="goBack:" destination="lNS-5g-yln" id="e8c-vI-EfP"/>
                             </connections>
@@ -607,7 +607,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Change Spending Password" id="una-NN-cK7">
                         <barButtonItem key="leftBarButtonItem" image="ic-backArrow" id="CFF-cE-4e0">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="goBack:" destination="bTE-ZU-Ohf" id="9M7-Ov-70T"/>
                             </connections>
@@ -746,7 +746,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Remove Wallet" id="4wE-0e-aMI">
                         <barButtonItem key="leftBarButtonItem" image="ic-backArrow" id="8Lb-Bm-lEP">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="goBack:" destination="rWC-Ut-2mo" id="mCP-gc-hop"/>
                             </connections>

@@ -61,7 +61,7 @@ class CheckmarkView: UIView {
     }
 
     func checkCheckmark() {
-        imvCheckmark.tintColor = .white
+        imvCheckmark.tintColor = .systemBackground
         view.backgroundColor = .primaryBlue
         self.layer.borderWidth = 0
         self.layer.borderColor = UIColor.clear.cgColor
@@ -69,7 +69,7 @@ class CheckmarkView: UIView {
     
     func uncheckCheckmark() {
         imvCheckmark.tintColor = .clear //.grey3
-        view.backgroundColor = .white //.grey4
+        view.backgroundColor = .systemBackground //.grey4
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.grey3.cgColor
     }
