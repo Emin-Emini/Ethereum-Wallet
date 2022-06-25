@@ -32,7 +32,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJo-Yb-o0Y" userLabel="UserView">
                                 <rect key="frame" x="16" y="112" width="382" height="78"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eth-logo" translatesAutoresizingMaskIntoConstraints="NO" id="orf-oK-QPm">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="orf-oK-QPm">
                                         <rect key="frame" x="16" y="15" width="48" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="ZKJ-Bw-2dJ"/>
@@ -785,8 +785,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="App Logo-1" width="1024" height="1024"/>
         <image name="easy-transaction" width="16" height="16.5"/>
-        <image name="eth-logo" width="2880" height="1800"/>
         <image name="ic-arrow-right" width="24" height="24"/>
         <image name="ic-backArrow" width="9.5" height="18"/>
         <image name="ic-edit" width="16" height="16"/>
