@@ -97,6 +97,11 @@ extension NewCredentialsRestoreWalletViewController: UITextFieldDelegate {
         continueButton.enable(fillColor: .primaryBlue)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch textField {
         case walletPassTextField, confirmWalletPassTextField:

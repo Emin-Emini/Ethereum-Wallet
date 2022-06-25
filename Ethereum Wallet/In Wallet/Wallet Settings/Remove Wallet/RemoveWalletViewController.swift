@@ -80,6 +80,11 @@ extension RemoveWalletViewController: UITextFieldDelegate {
         
         saveChangeButton.enable(fillColor: .primaryBlue)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 // MARK: - Buttons
