@@ -72,6 +72,11 @@ extension PhraseRestoreWalletViewController: UITextFieldDelegate {
         
         restoreWalletButton.enable(fillColor: .primaryBlue)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 // MARK: - Buttons

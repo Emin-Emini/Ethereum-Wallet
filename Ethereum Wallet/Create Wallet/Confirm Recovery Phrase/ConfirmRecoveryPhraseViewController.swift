@@ -108,6 +108,11 @@ extension ConfirmRecoveryPhraseViewController: UITextFieldDelegate {
               }
         return true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 // MARK: - Button Functions
