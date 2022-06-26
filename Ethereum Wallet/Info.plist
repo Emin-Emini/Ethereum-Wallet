@@ -4,6 +4,8 @@
 <dict>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Identify yourself to get into your wallet.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Need access to camera to use it for scanning QR Code when Sending Ethereum</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -931,6 +931,7 @@
                     <connections>
                         <outlet property="cameraContainerView" destination="EBY-VQ-a3V" id="sXV-WY-aEb"/>
                         <segue destination="fDi-Gv-O1v" kind="unwind" identifier="unwindToSendAfterSuccessfulScan" unwindAction="unwindToSendAfterSuccessfulScan:" id="Udh-6P-QLG"/>
+                        <segue destination="fDi-Gv-O1v" kind="unwind" unwindAction="unwindToSendAfterSuccessfulScan:" id="naV-5U-Zum"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="209-rr-May" sceneMemberID="firstResponder"/>

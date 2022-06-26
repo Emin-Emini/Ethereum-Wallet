@@ -9,6 +9,8 @@ import UIKit
 import MaterialComponents.MaterialTextControls_FilledTextFields
 import SwiftKeychainWrapper
 import web3swift
+import HDWalletKit
+import BigInt
 
 class SendViewController: UIViewController {
     
@@ -33,6 +35,7 @@ class SendViewController: UIViewController {
 
     // MARK: - Properties
     var isFeeCalculated = false
+    var gasPrice: BigUInt = 0
     
     // MARK: - View
     override func viewDidLoad() {
@@ -71,14 +74,23 @@ class SendViewController: UIViewController {
 
 // MARK: - Unwing Functions
 extension SendViewController {
-    
+    @IBAction func unwindToSendAfterSuccessfulScan(_ sender: UIStoryboardSegue) {
+        addressTextField.text = scannedAddress
+        
+        if !amountTextField.text!.isEmpty {
+            validateTokenAmount()
+        } else {
+            
+        }
+        
+    }
 }
 
 // MARK: - Sign Tx Function
 extension SendViewController {
     func sendTransactiongFlow() {
         if isFeeCalculated {
-            signTransaction()
+            signTransaction2()
         } else {
             calculateFee()
         }
@@ -102,7 +114,7 @@ extension SendViewController {
         print(try! web3.eth.getGasPrice())
         do {
             let gasPrice = try web3.eth.getGasPrice()
-            
+            self.gasPrice = gasPrice
             let formatter = NumberFormatter()
             formatter.maximumFractionDigits = 15
             formatter.minimumFractionDigits = 0
@@ -136,13 +148,35 @@ extension SendViewController {
         options.gasPrice = .automatic
         options.gasLimit = .automatic
         
-//        let tx = contract.write(
-//            "fallback",
-//            parameters: [AnyObject](),
-//            extraData: Data(),
-//            transactionOptions: options)!
-        //print(tx)
+        let tx = contract.write(
+            "fallback",
+            parameters: [AnyObject](),
+            extraData: Data(),
+            transactionOptions: options)!
+        print(tx.transaction)
         self.dismiss(animated: true)
+    }
+    
+    func signTransaction2() {
+        guard let amountString = amountTextField.text else { return }
+        guard let address = addressTextField.text else { return }
+        let amount = Int((Double(amountString) ?? 0.0) * ethDivident)
+        
+        print(amount)
+        print(Wei("\(amount)") ?? 0)
+        
+        let signer = EIP155Signer(chainId: 1)
+        let rawTransaction1 = EthereumRawTransaction(
+            value: Wei("\(amount)") ?? 0,
+            to: "\(address)",
+            gasPrice: Int(gasPrice),
+            gasLimit: 21000,
+            nonce: 2
+        )
+        guard let signed = try? signer.hash(rawTransaction: rawTransaction1).toHexString() else { return }
+        print(signed)
+        
+        
     }
 }
 
