@@ -8,6 +8,7 @@
 import UIKit
 import MaterialComponents.MaterialTextControls_FilledTextFields
 import SwiftKeychainWrapper
+import LocalAuthentication
 
 class WalletAuthenticationViewController: UIViewController {
 
@@ -26,12 +27,17 @@ class WalletAuthenticationViewController: UIViewController {
         setupTextFields()
         setupButtons()
         
-        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        loadFaceID()
     }
 
     // MARK: - Actions
     @IBAction func goBack(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
     
     @IBAction func oldPasswordButton(_ sender: Any) {
@@ -42,6 +48,35 @@ class WalletAuthenticationViewController: UIViewController {
         
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
+    }
+}
+
+// MARK: - Face ID Auth
+extension WalletAuthenticationViewController {
+    func loadFaceID() {
+        let context = LAContext()
+            var error: NSError?
+
+            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                let reason = "Identify yourself!"
+
+                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+                    [weak self] success, authenticationError in
+
+                    DispatchQueue.main.async {
+                        if success {
+                            self?.performSegue(withIdentifier: "goInWallet", sender: nil)
+                        } else {
+                            // error
+                        }
+                    }
+                }
+            } else {
+                // no biometry
+                let ac = UIAlertController(title: "Biometry unavailable", message: "Your device is not configured for biometric authentication.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(ac, animated: true)
+            }
     }
 }
 

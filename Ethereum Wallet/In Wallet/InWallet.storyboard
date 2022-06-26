@@ -933,7 +933,7 @@
             </objects>
             <point key="canvasLocation" x="212" y="1347"/>
         </scene>
-        <!--Change Spending Password-->
+        <!--Wallet Authentication View Controller-->
         <scene sceneID="aeb-Lw-IXr">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Lb2-TP-AJA" customClass="WalletAuthenticationViewController" customModule="Ethereum_Wallet" customModuleProvider="target" sceneMemberID="viewController">
@@ -969,7 +969,7 @@
                                 <state key="normal" title="SAVE CHANGES"/>
                                 <connections>
                                     <action selector="saveChanges:" destination="Lb2-TP-AJA" eventType="touchUpInside" id="q0S-YZ-FvZ"/>
-                                    <segue destination="fWr-hn-F7m" kind="showDetail" id="hR5-Df-xTe"/>
+                                    <segue destination="fWr-hn-F7m" kind="showDetail" identifier="goInWallet" id="hR5-Df-xTe"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet Authentication" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTn-nK-nda">
@@ -992,7 +992,7 @@
                                     <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="goBack:" destination="fWr-hn-F7m" eventType="touchUpInside" id="gBy-Ra-0EA"/>
+                                    <action selector="goBack:" destination="Lb2-TP-AJA" eventType="touchUpInside" id="jtA-7H-p0I"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1013,14 +1013,6 @@
                             <constraint firstItem="s6n-cX-kzV" firstAttribute="trailing" secondItem="MZ1-5N-39A" secondAttribute="trailing" constant="16" id="x6e-HX-Z8j"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Change Spending Password" id="9ax-Us-quz">
-                        <barButtonItem key="leftBarButtonItem" image="ic-backArrow" id="0Rp-eI-EEA">
-                            <color key="tintColor" systemColor="labelColor"/>
-                            <connections>
-                                <action selector="goBack:" destination="Lb2-TP-AJA" id="jtH-Or-nVF"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="continueButton" destination="MZ1-5N-39A" id="GcS-1H-QdK"/>
                         <outlet property="oldPassButton" destination="6ff-a6-g38" id="1k0-AR-3R3"/>
