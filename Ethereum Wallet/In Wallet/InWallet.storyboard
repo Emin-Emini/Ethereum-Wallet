@@ -694,7 +694,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="sPm-N6-BKh">
-                                                <rect key="frame" x="32" y="334" width="350" height="177"/>
+                                                <rect key="frame" x="32" y="334" width="350" height="151"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AtX-Fe-LNK" customClass="MDCFilledTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
@@ -712,10 +712,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxX-hk-6Zu">
-                                                        <rect key="frame" x="0.0" y="125" width="350" height="52"/>
+                                                        <rect key="frame" x="0.0" y="125" width="350" height="26"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yIc-Kv-Lhd">
-                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="52"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="26"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Msu-KB-wRy">
                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="26"/>
@@ -785,6 +785,11 @@
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
+                                                                <variation key="default">
+                                                                    <mask key="subviews">
+                                                                        <exclude reference="KM2-IW-JOv"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </stackView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

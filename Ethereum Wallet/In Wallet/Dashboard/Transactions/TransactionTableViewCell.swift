@@ -36,14 +36,14 @@ class TransactionTableViewCell: UITableViewCell {
 extension TransactionTableViewCell {
     func loadDataInCell(tx: Transaction) {
         setTransactionType(tx: tx)
-        transactionAmountLabel.text = "\((Double(tx.value) ?? 0) / 1000000000000000000) ETH"
+        transactionAmountLabel.text = "\((Double(tx.value) ?? 0) / ethDivident) ETH"
         
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 15
         formatter.minimumFractionDigits = 0
         formatter.numberStyle = .decimal
         
-        let fee = ((Double(tx.gasPrice) ?? 0) / 1000000000000000000)
+        let fee = ((Double(tx.gasPrice) ?? 0) / ethDivident)
         let feeFormatted = formatter.string(for: fee)
         print(fee)
         print(feeFormatted)

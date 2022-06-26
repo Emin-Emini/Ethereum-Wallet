@@ -12,6 +12,7 @@ import SwiftKeychainWrapper
 import Alamofire
 
 var transactions: [Transaction]? = nil
+let ethDivident: Double = 1000000000000000000
 
 class DashboardViewController: UIViewController {
 

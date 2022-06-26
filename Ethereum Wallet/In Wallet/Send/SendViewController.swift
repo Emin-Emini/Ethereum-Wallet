@@ -32,7 +32,7 @@ class SendViewController: UIViewController {
     @IBOutlet weak var addressTextfieldHeightConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
-    
+    var isFeeCalculated = false
     
     // MARK: - View
     override func viewDidLoad() {
@@ -65,7 +65,7 @@ class SendViewController: UIViewController {
     }
     
     @IBAction func continueSending(_ sender: Any) {
-        //continuSendingButton(isFeeCalculated: isFeeCalculated)
+        sendTransactiongFlow()
     }
 }
 
@@ -76,7 +76,17 @@ extension SendViewController {
 
 // MARK: - Sign Tx Function
 extension SendViewController {
-    func signTransaction() {
+    func sendTransactiongFlow() {
+        if isFeeCalculated {
+            signTransaction()
+        } else {
+            calculateFee()
+        }
+    }
+    
+    func calculateFee() {
+        continueButton.setStyle(fillColor: .primaryBlue, title: "CALCULATING FEE", fontSize: 16)
+        continueButton.disable()
         let web3 = Web3.InfuraMainnetWeb3()
         let value: String = amountTextField.text ?? "0.0"
         guard let myAddressString = arrayOfAddresses.first else { return }
@@ -89,11 +99,50 @@ extension SendViewController {
         options.from = walletAddress
         options.gasPrice = .automatic
         options.gasLimit = .automatic
-        let tx = contract.write(
-        "fallback",
-        parameters: [AnyObject](),
-        extraData: Data(),
-        transactionOptions: options)!
+        print(try! web3.eth.getGasPrice())
+        do {
+            let gasPrice = try web3.eth.getGasPrice()
+            
+            let formatter = NumberFormatter()
+            formatter.maximumFractionDigits = 15
+            formatter.minimumFractionDigits = 0
+            formatter.numberStyle = .decimal
+            
+            let fee = (Double(gasPrice) / ethDivident)
+            let feeFormatted = formatter.string(for: fee)
+            feeLabel.text = "\(feeFormatted ?? "0.0") ETH"
+            isFeeCalculated = true
+            continueButton.setStyle(fillColor: .primaryBlue, title: "SIGN TRANSACTION", fontSize: 16)
+            continueButton.enable(fillColor: .primaryBlue)
+        } catch {
+            print("Failed to calculate fee.")
+            isFeeCalculated = false
+        }
+    }
+    
+    func signTransaction() {
+        continueButton.setStyle(fillColor: .primaryBlue, title: "SIGNING TRANSACTION", fontSize: 16)
+        continueButton.disable()
+        let web3 = Web3.InfuraMainnetWeb3()
+        let value: String = amountTextField.text ?? "0.0"
+        guard let myAddressString = arrayOfAddresses.first else { return }
+        let walletAddress = EthereumAddress(myAddressString)! // Your wallet address
+        let toAddress = EthereumAddress(addressTextField.text!)!
+        let contract = web3.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
+        let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
+        var options = TransactionOptions.defaultOptions
+        options.value = amount
+        options.from = walletAddress
+        options.gasPrice = .automatic
+        options.gasLimit = .automatic
+        
+//        let tx = contract.write(
+//            "fallback",
+//            parameters: [AnyObject](),
+//            extraData: Data(),
+//            transactionOptions: options)!
+        //print(tx)
+        self.dismiss(animated: true)
     }
 }
 
@@ -122,7 +171,7 @@ extension SendViewController: UITextFieldDelegate {
     
     func setupScanAddresIcon() {
         
-        let scanIcon = UIImage(named: "scan-qr")
+        let scanIcon = UIImage(named: "ic-scan-qr")
         
         let scanButton = UIButton(type: .custom)
         scanButton.frame = CGRect(x: CGFloat(0), y: CGFloat(addressTextField.frame.height - 45), width: CGFloat(45), height: CGFloat(45))
@@ -141,6 +190,7 @@ extension SendViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         continueButton.disable()
+        isFeeCalculated = false
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
