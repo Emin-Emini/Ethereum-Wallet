@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vhu-Ua-hB8">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,13 +20,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To restore your wallet, please provide the 12-word recovery phrase generated when you created your wallet for the first time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJi-71-i7B">
                                 <rect key="frame" x="16" y="112" width="382" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please input words seperated only with space in between." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Mf-GJ-F9d">
                                 <rect key="frame" x="16" y="174" width="382" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-K2-k06" customClass="MDCFilledTextField">
@@ -48,7 +49,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ncu-mV-wvV"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Secondary Background Color"/>
                         <constraints>
                             <constraint firstItem="TJi-71-i7B" firstAttribute="top" secondItem="Ncu-mV-wvV" secondAttribute="top" constant="24" id="0Cn-VH-V9L"/>
                             <constraint firstItem="7Mf-GJ-F9d" firstAttribute="leading" secondItem="Ncu-mV-wvV" secondAttribute="leading" constant="16" id="3Ib-Qe-GcT"/>
@@ -67,7 +68,7 @@
                     <navigationItem key="navigationItem" title="Restore Wallet" largeTitleDisplayMode="never" id="aIP-6E-7CT">
                         <barButtonItem key="backBarButtonItem" title=" " id="tfj-uj-70j"/>
                         <barButtonItem key="leftBarButtonItem" image="ic-backArrow" id="eux-zI-69L">
-                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="goBack:" destination="DST-5J-HTQ" id="ftk-dD-hTy"/>
                             </connections>
@@ -128,7 +129,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="Secondary Background Color"/>
                                 <constraints>
                                     <constraint firstItem="k7i-YQ-zP4" firstAttribute="leading" secondItem="ohw-g7-zQL" secondAttribute="leading" constant="16" id="BF1-MA-qZp"/>
                                     <constraint firstItem="Rv5-da-gR2" firstAttribute="centerY" secondItem="k7i-YQ-zP4" secondAttribute="centerY" id="DWG-Qr-i1f"/>
@@ -159,24 +160,23 @@
 • Make sure the address match what you remember
 • Store the mnemonic on a safe place (it is your only mean of restoring the wallet)</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Wallet Account checksum:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTo-Qr-Akz">
                                 <rect key="frame" x="16" y="104" width="382" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet address:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOl-wk-MWn">
                                 <rect key="frame" x="16" y="336" width="110.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RCy-L7-yt4">
                                 <rect key="frame" x="0.0" y="359" width="414" height="423"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addressCell" id="qoL-Gt-nlj" customClass="AddressTableViewCell" customModule="Ethereum_Wallet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="86"/>
@@ -191,19 +191,19 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="addzFFzCqrhsgwQmeWNBTsG8234ddzFFzCqrhsgwQmeWNBTsG8234ddzFFzCqrhsgwQmeWNBTsG8234" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8r-Ya-b4W">
                                                             <rect key="frame" x="8" y="8" width="336" height="54"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1YE-xD-C9B">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-copy" translatesAutoresizingMaskIntoConstraints="NO" id="1YE-xD-C9B">
                                                             <rect key="frame" x="352" y="24" width="22" height="22"/>
-                                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" systemColor="secondaryLabelColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="22" id="AI0-Aj-Ryh"/>
                                                                 <constraint firstAttribute="width" constant="22" id="aMv-PT-ADn"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" name="Secondary Background Color"/>
                                                     <constraints>
                                                         <constraint firstItem="1YE-xD-C9B" firstAttribute="leading" secondItem="J8r-Ya-b4W" secondAttribute="trailing" constant="8" id="1X1-Jb-RP9"/>
                                                         <constraint firstAttribute="trailing" secondItem="1YE-xD-C9B" secondAttribute="trailing" constant="8" id="UAP-29-gEP"/>
@@ -220,6 +220,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="srp-f5-8Zs" secondAttribute="bottom" constant="8" id="7Hq-bL-cCN"/>
                                                 <constraint firstItem="srp-f5-8Zs" firstAttribute="top" secondItem="3mK-e4-tVv" secondAttribute="top" constant="8" id="BSS-cy-vlU"/>
@@ -227,6 +228,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="srp-f5-8Zs" secondAttribute="trailing" constant="16" id="pNf-ep-mtZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="addressLabel" destination="J8r-Ya-b4W" id="ZJY-KJ-4Et"/>
                                             <outlet property="containerView" destination="srp-f5-8Zs" id="BIU-xo-ZyA"/>
@@ -240,7 +242,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SNJ-p1-qdX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background Color"/>
                         <constraints>
                             <constraint firstItem="VfO-U9-Bt6" firstAttribute="leading" secondItem="SNJ-p1-qdX" secondAttribute="leading" constant="16" id="1AI-X8-h9T"/>
                             <constraint firstItem="SNJ-p1-qdX" firstAttribute="bottom" secondItem="y9c-z2-O8W" secondAttribute="bottom" constant="16" id="7TH-s2-rOm"/>
@@ -350,7 +352,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SIX-O5-DvY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background Color"/>
                         <constraints>
                             <constraint firstItem="Oaf-10-BTz" firstAttribute="trailing" secondItem="3Oo-zO-sQu" secondAttribute="trailing" id="4zD-Tb-1Ys"/>
                             <constraint firstItem="Oaf-10-BTz" firstAttribute="centerY" secondItem="3Oo-zO-sQu" secondAttribute="centerY" id="BIs-ix-oRb"/>
@@ -410,9 +412,19 @@
     <resources>
         <image name="eth-logo" width="2880" height="1800"/>
         <image name="ic-backArrow" width="9.5" height="18"/>
+        <image name="ic-copy" width="512" height="512"/>
         <image name="ic-eyeOff" width="17" height="16"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <namedColor name="Background Color">
+            <color red="0.92941176470588238" green="0.93725490196078431" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary Background Color">
+            <color red="0.88235294117647056" green="0.8901960784313725" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
