@@ -20,6 +20,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var walletBalanceLabel: UILabel!
     @IBOutlet weak var usdBalanceLabel: UILabel!
     @IBOutlet weak var transactionsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
     let refreshControl = UIRefreshControl()
@@ -35,10 +36,23 @@ class DashboardViewController: UIViewController {
         
         setupWallet()
         setUpRefreshAction()
+        startLoading()
     }
     
     @IBAction func goBack(_ sender: Any) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+    }
+}
+
+// MARK: - Loading Indicator
+extension DashboardViewController {
+    func startLoading() {
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+    }
+    
+    func stopLoading() {
+        activityIndicator.isHidden = true
     }
 }
 
@@ -106,6 +120,7 @@ extension DashboardViewController {
             self.transactionsTableView.isHidden = transactions?.count ?? 0 < 1 ? true : false
             DispatchQueue.main.async {
                 self.transactionsTableView.reloadData()
+                self.stopLoading()
             }
           }
     }
@@ -131,21 +146,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell", for: indexPath) as! TransactionTableViewCell
+        let transaction = transactions?[indexPath.row]
+        cell.openTransaction(tx: transaction?.hash ?? "")
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? WalletTableViewCell {
-            cell.containerView.backgroundColor = UIColor.rgb(60, 60, 67, 0.05)
-            print("Highlited")
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? WalletTableViewCell {
-            cell.containerView.backgroundColor = UIColor.rgb(60, 60, 67, 0.10)
-            print("Unhighlited")
-        }
     }
 }

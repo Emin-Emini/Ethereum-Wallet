@@ -147,7 +147,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxS-IU-bpU">
                                                 <rect key="frame" x="225" y="0.0" width="125" height="46"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-setting" translatesAutoresizingMaskIntoConstraints="NO" id="aRQ-ck-5uz">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-settings" translatesAutoresizingMaskIntoConstraints="NO" id="aRQ-ck-5uz">
                                                         <rect key="frame" x="52.5" y="4" width="20" height="20"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -274,14 +274,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gVK-Xq-sep">
-                                                    <rect key="frame" x="20" y="27" width="35" height="50.5"/>
+                                                    <rect key="frame" x="20" y="27" width="30" height="50.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="Mqy-Ly-6Wi"/>
-                                                        <constraint firstAttribute="width" constant="35" id="zSQ-NX-IEs"/>
+                                                        <constraint firstAttribute="width" constant="30" id="zSQ-NX-IEs"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DP-nE-u2f">
-                                                    <rect key="frame" x="67" y="33" width="0.0" height="21"/>
+                                                    <rect key="frame" x="62" y="33" width="0.0" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="PKO-ug-1Sm"/>
                                                     </constraints>
@@ -308,7 +308,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiT-lJ-FGy">
-                                                    <rect key="frame" x="67" y="54" width="0.0" height="21"/>
+                                                    <rect key="frame" x="62" y="54" width="0.0" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="SaJ-A2-cyh"/>
                                                     </constraints>
@@ -347,10 +347,19 @@
                                     <outlet property="delegate" destination="fWr-hn-F7m" id="0VP-td-jP7"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZdE-Tj-54F">
+                                <rect key="frame" x="187" y="583.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="UCP-BI-1hV"/>
+                                    <constraint firstAttribute="height" constant="40" id="gmY-jE-NSv"/>
+                                </constraints>
+                                <color key="color" name="Primary Blue"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nGW-Qb-zll"/>
                         <color key="backgroundColor" name="Background Color"/>
                         <constraints>
+                            <constraint firstItem="ZdE-Tj-54F" firstAttribute="centerY" secondItem="Fxv-U3-seH" secondAttribute="centerY" id="3sN-IS-fke"/>
                             <constraint firstItem="Fxv-U3-seH" firstAttribute="leading" secondItem="nGW-Qb-zll" secondAttribute="leading" id="3zp-Yi-oNh"/>
                             <constraint firstItem="Fxv-U3-seH" firstAttribute="trailing" secondItem="nGW-Qb-zll" secondAttribute="trailing" id="Dg9-WH-UjM"/>
                             <constraint firstItem="THf-hd-D0G" firstAttribute="centerX" secondItem="rNe-Qg-sYl" secondAttribute="centerX" id="Kn2-Hf-30I"/>
@@ -359,6 +368,7 @@
                             <constraint firstItem="bIv-V7-h9i" firstAttribute="top" secondItem="rNe-Qg-sYl" secondAttribute="top" id="P0Q-Rg-e6A"/>
                             <constraint firstItem="bIv-V7-h9i" firstAttribute="trailing" secondItem="nGW-Qb-zll" secondAttribute="trailing" id="XHY-m4-cwi"/>
                             <constraint firstAttribute="bottom" secondItem="Fxv-U3-seH" secondAttribute="bottom" id="YQf-GA-7Hb"/>
+                            <constraint firstItem="ZdE-Tj-54F" firstAttribute="centerX" secondItem="Fxv-U3-seH" secondAttribute="centerX" id="Ziy-Av-jcR"/>
                             <constraint firstItem="nGW-Qb-zll" firstAttribute="trailing" secondItem="tfh-qP-a9y" secondAttribute="trailing" id="gaY-dQ-eug"/>
                             <constraint firstItem="tfh-qP-a9y" firstAttribute="top" secondItem="bIv-V7-h9i" secondAttribute="bottom" id="mVT-t7-oVh"/>
                             <constraint firstItem="THf-hd-D0G" firstAttribute="top" secondItem="nGW-Qb-zll" secondAttribute="top" constant="24" id="oDK-C2-f7g"/>
@@ -369,6 +379,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="dashboard" image="ic-ethereum" id="EQZ-x6-Tde"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="ZdE-Tj-54F" id="ytR-x6-bzX"/>
                         <outlet property="transactionsTableView" destination="Fxv-U3-seH" id="oxf-Mv-GA7"/>
                         <outlet property="usdBalanceLabel" destination="sFL-b5-T3L" id="aqG-cq-7nX"/>
                         <outlet property="walletBalanceLabel" destination="yTh-y6-sNJ" id="e1a-TV-rSu"/>
@@ -1036,9 +1047,9 @@
         <image name="ic-backArrow" width="9.5" height="18"/>
         <image name="ic-ethereum" width="24" height="24"/>
         <image name="ic-eyeOff" width="17" height="16"/>
-        <image name="ic-receive" width="24" height="24"/>
-        <image name="ic-send" width="24" height="24"/>
-        <image name="ic-setting" width="32" height="32"/>
+        <image name="ic-receive" width="512" height="512"/>
+        <image name="ic-send" width="512" height="512"/>
+        <image name="ic-settings" width="512" height="512"/>
         <image name="pull-down" width="1076.5" height="371.5"/>
         <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
         <namedColor name="Background Color">

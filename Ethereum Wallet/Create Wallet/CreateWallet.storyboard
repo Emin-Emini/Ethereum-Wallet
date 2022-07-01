@@ -327,7 +327,7 @@
                     <navigationItem key="navigationItem" title="Create a New Wallet" id="udm-Zh-Jr3">
                         <barButtonItem key="backBarButtonItem" title=" " id="flq-DG-qmM"/>
                         <barButtonItem key="leftBarButtonItem" image="ic-backArrow" id="gMp-Jj-xx2">
-                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="goBack:" destination="yDN-CU-c5m" id="iBf-Rw-taX"/>
                             </connections>
