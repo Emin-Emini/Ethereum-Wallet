@@ -20,6 +20,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var walletBalanceLabel: UILabel!
     @IBOutlet weak var usdBalanceLabel: UILabel!
     @IBOutlet weak var transactionsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
     let refreshControl = UIRefreshControl()
@@ -35,10 +36,23 @@ class DashboardViewController: UIViewController {
         
         setupWallet()
         setUpRefreshAction()
+        startLoading()
     }
     
     @IBAction func goBack(_ sender: Any) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+    }
+}
+
+// MARK: - Loading Indicator
+extension DashboardViewController {
+    func startLoading() {
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+    }
+    
+    func stopLoading() {
+        activityIndicator.isHidden = true
     }
 }
 
@@ -106,6 +120,7 @@ extension DashboardViewController {
             self.transactionsTableView.isHidden = transactions?.count ?? 0 < 1 ? true : false
             DispatchQueue.main.async {
                 self.transactionsTableView.reloadData()
+                self.stopLoading()
             }
           }
     }

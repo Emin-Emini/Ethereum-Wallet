@@ -347,10 +347,19 @@
                                     <outlet property="delegate" destination="fWr-hn-F7m" id="0VP-td-jP7"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZdE-Tj-54F">
+                                <rect key="frame" x="187" y="583.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="UCP-BI-1hV"/>
+                                    <constraint firstAttribute="height" constant="40" id="gmY-jE-NSv"/>
+                                </constraints>
+                                <color key="color" name="Primary Blue"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nGW-Qb-zll"/>
                         <color key="backgroundColor" name="Background Color"/>
                         <constraints>
+                            <constraint firstItem="ZdE-Tj-54F" firstAttribute="centerY" secondItem="Fxv-U3-seH" secondAttribute="centerY" id="3sN-IS-fke"/>
                             <constraint firstItem="Fxv-U3-seH" firstAttribute="leading" secondItem="nGW-Qb-zll" secondAttribute="leading" id="3zp-Yi-oNh"/>
                             <constraint firstItem="Fxv-U3-seH" firstAttribute="trailing" secondItem="nGW-Qb-zll" secondAttribute="trailing" id="Dg9-WH-UjM"/>
                             <constraint firstItem="THf-hd-D0G" firstAttribute="centerX" secondItem="rNe-Qg-sYl" secondAttribute="centerX" id="Kn2-Hf-30I"/>
@@ -359,6 +368,7 @@
                             <constraint firstItem="bIv-V7-h9i" firstAttribute="top" secondItem="rNe-Qg-sYl" secondAttribute="top" id="P0Q-Rg-e6A"/>
                             <constraint firstItem="bIv-V7-h9i" firstAttribute="trailing" secondItem="nGW-Qb-zll" secondAttribute="trailing" id="XHY-m4-cwi"/>
                             <constraint firstAttribute="bottom" secondItem="Fxv-U3-seH" secondAttribute="bottom" id="YQf-GA-7Hb"/>
+                            <constraint firstItem="ZdE-Tj-54F" firstAttribute="centerX" secondItem="Fxv-U3-seH" secondAttribute="centerX" id="Ziy-Av-jcR"/>
                             <constraint firstItem="nGW-Qb-zll" firstAttribute="trailing" secondItem="tfh-qP-a9y" secondAttribute="trailing" id="gaY-dQ-eug"/>
                             <constraint firstItem="tfh-qP-a9y" firstAttribute="top" secondItem="bIv-V7-h9i" secondAttribute="bottom" id="mVT-t7-oVh"/>
                             <constraint firstItem="THf-hd-D0G" firstAttribute="top" secondItem="nGW-Qb-zll" secondAttribute="top" constant="24" id="oDK-C2-f7g"/>
@@ -369,6 +379,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="dashboard" image="ic-ethereum" id="EQZ-x6-Tde"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="ZdE-Tj-54F" id="ytR-x6-bzX"/>
                         <outlet property="transactionsTableView" destination="Fxv-U3-seH" id="oxf-Mv-GA7"/>
                         <outlet property="usdBalanceLabel" destination="sFL-b5-T3L" id="aqG-cq-7nX"/>
                         <outlet property="walletBalanceLabel" destination="yTh-y6-sNJ" id="e1a-TV-rSu"/>
