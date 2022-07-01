@@ -9,6 +9,14 @@ import UIKit
 import MaterialComponents.MaterialTextControls_FilledTextFields
 import SwiftKeychainWrapper
 import web3swift
+import BigInt
+
+struct Web3Wallet {
+    let address: String
+    let data: Data
+    let name: String
+    let isHD: Bool
+}
 
 class SendViewController: UIViewController {
     
@@ -32,7 +40,11 @@ class SendViewController: UIViewController {
     @IBOutlet weak var addressTextfieldHeightConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
+    var isFeeCalculated = false
+    var gasPrice: BigUInt = 0
     
+    let web3 = Web3.InfuraMainnetWeb3()
+    var keystoreManager: KeystoreManager!
     
     // MARK: - View
     override func viewDidLoad() {
@@ -46,6 +58,8 @@ class SendViewController: UIViewController {
         
         setupTextFieldsLayout()
         setupButtons()
+        
+        setupWallet()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -65,19 +79,67 @@ class SendViewController: UIViewController {
     }
     
     @IBAction func continueSending(_ sender: Any) {
-        //continuSendingButton(isFeeCalculated: isFeeCalculated)
+        sendTransactiongFlow()
     }
 }
 
 // MARK: - Unwing Functions
 extension SendViewController {
-    
+    @IBAction func unwindToSendAfterSuccessfulScan(_ sender: UIStoryboardSegue) {
+        addressTextField.text = scannedAddress
+        
+        if !amountTextField.text!.isEmpty {
+            validateTokenAmount()
+        } else {
+            
+        }
+        
+    }
+}
+
+// MARK: - Web3 & KeystoreManager
+extension SendViewController {
+    func setupWallet() {
+        let keychainMnemonicsString = KeychainWrapper.standard.string(forKey: "walletMnemonics")
+        let keychainWalletName = KeychainWrapper.standard.string(forKey: "walletName")
+        let keychainWalletPassword = KeychainWrapper.standard.string(forKey: "spendingPassword")
+        guard let mnemonics = keychainMnemonicsString else { return }
+        guard let name = keychainWalletName else { return }
+        guard let password = keychainWalletPassword else { return }
+        
+        let keystore = try! BIP32Keystore(
+            mnemonics: mnemonics,
+            password: password,
+            mnemonicsPassword: "",
+            language: .english)!
+        
+        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
+        let address = keystore.addresses!.first!.address
+        let wallet = Web3Wallet(address: address, data: keyData, name: name, isHD: true)
+        
+        let data = wallet.data
+        
+        let keystoreDataBIP32 = BIP32Keystore(data)!
+        keystoreManager = KeystoreManager([keystoreDataBIP32])
+        
+        web3.addKeystoreManager(keystoreManager)
+    }
 }
 
 // MARK: - Sign Tx Function
 extension SendViewController {
-    func signTransaction() {
-        let web3 = Web3.InfuraMainnetWeb3()
+    func sendTransactiongFlow() {
+        if isFeeCalculated {
+            signTransaction()
+        } else {
+            calculateFee()
+        }
+    }
+    
+    func calculateFee() {
+        continueButton.setStyle(fillColor: .primaryBlue, title: "CALCULATING FEE", fontSize: 16)
+        continueButton.disable()
+        
         let value: String = amountTextField.text ?? "0.0"
         guard let myAddressString = arrayOfAddresses.first else { return }
         let walletAddress = EthereumAddress(myAddressString)! // Your wallet address
@@ -89,11 +151,72 @@ extension SendViewController {
         options.from = walletAddress
         options.gasPrice = .automatic
         options.gasLimit = .automatic
+        print(try! web3.eth.getGasPrice())
+        do {
+            let gasPrice = try web3.eth.getGasPrice()
+            self.gasPrice = gasPrice
+            let formatter = NumberFormatter()
+            formatter.maximumFractionDigits = 15
+            formatter.minimumFractionDigits = 0
+            formatter.numberStyle = .decimal
+            
+            let fee = (Double(gasPrice) / ethDivident)
+            let feeFormatted = formatter.string(for: fee)
+            feeLabel.text = "\(feeFormatted ?? "0.0") ETH"
+            isFeeCalculated = true
+            continueButton.setStyle(fillColor: .primaryBlue, title: "SIGN TRANSACTION", fontSize: 16)
+            continueButton.enable(fillColor: .primaryBlue)
+        } catch {
+            print("Failed to calculate fee.")
+            isFeeCalculated = false
+        }
+    }
+    
+    func signTransaction() {
+        continueButton.setStyle(fillColor: .primaryBlue, title: "SIGNING TRANSACTION", fontSize: 16)
+        continueButton.disable()
+        
+        let value: String = amountTextField.text ?? "0.0"
+        guard let myAddressString = arrayOfAddresses.first else { return }
+        let walletAddress = EthereumAddress(myAddressString)! // Your wallet address
+        let toAddress = EthereumAddress(addressTextField.text!)!
+        let contract = web3.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
+        let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
+        var options = TransactionOptions.defaultOptions
+        
+        guard let myAmount = amount else { return }
+        print(myAmount)
+        print(walletAddress)
+        options.value = myAmount
+        options.from = walletAddress
+        options.gasPrice = .automatic
+        options.gasLimit = .automatic
+        
         let tx = contract.write(
-        "fallback",
-        parameters: [AnyObject](),
-        extraData: Data(),
-        transactionOptions: options)!
+            "fallback",
+            parameters: [AnyObject](),
+            extraData: Data(),
+            transactionOptions: options)!
+        
+        print()
+        print("tx.transaction:")
+        print(tx.transaction)
+        print("tx.contract:")
+        print(tx.contract)
+        print("tx.transactionOptions:")
+        print(tx.transactionOptions)
+        print()
+        
+        do {
+            try tx.send(password: "testing123", transactionOptions: options)
+            print("Successfuly Sent Transaction")
+            self.showToast(message: "Successfuly Sent Transaction", font: .systemFont(ofSize: 12.0))
+        } catch {
+            print(error)
+            print("Failed to Send Transaction")
+            self.showToast(message: "Failed to Send Transaction \(error)", font: .systemFont(ofSize: 12.0))
+        }
+        self.dismiss(animated: true)
     }
 }
 
@@ -122,7 +245,7 @@ extension SendViewController: UITextFieldDelegate {
     
     func setupScanAddresIcon() {
         
-        let scanIcon = UIImage(named: "scan-qr")
+        let scanIcon = UIImage(named: "ic-scan-qr")
         
         let scanButton = UIButton(type: .custom)
         scanButton.frame = CGRect(x: CGFloat(0), y: CGFloat(addressTextField.frame.height - 45), width: CGFloat(45), height: CGFloat(45))
@@ -141,6 +264,7 @@ extension SendViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         continueButton.disable()
+        isFeeCalculated = false
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
