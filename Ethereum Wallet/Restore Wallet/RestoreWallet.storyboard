@@ -49,7 +49,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ncu-mV-wvV"/>
-                        <color key="backgroundColor" name="Secondary Background Color"/>
+                        <color key="backgroundColor" name="Background Color"/>
                         <constraints>
                             <constraint firstItem="TJi-71-i7B" firstAttribute="top" secondItem="Ncu-mV-wvV" secondAttribute="top" constant="24" id="0Cn-VH-V9L"/>
                             <constraint firstItem="7Mf-GJ-F9d" firstAttribute="leading" secondItem="Ncu-mV-wvV" secondAttribute="leading" constant="16" id="3Ib-Qe-GcT"/>
