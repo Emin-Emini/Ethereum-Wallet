@@ -30,6 +30,14 @@ class TransactionTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func openTransaction(tx: String) {
+        let ethScan = "https://etherscan.io/tx/\(tx)"
+        
+        if let url = URL(string: ethScan) {
+            UIApplication.shared.open(url)
+        }
+    }
 }
 
 // MARK: - Functions
@@ -39,7 +47,7 @@ extension TransactionTableViewCell {
         transactionAmountLabel.text = "\((Double(tx.value) ?? 0) / ethDivident) ETH"
         
         let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 15
+        formatter.maximumFractionDigits = 10
         formatter.minimumFractionDigits = 0
         formatter.numberStyle = .decimal
         
@@ -48,7 +56,7 @@ extension TransactionTableViewCell {
         print(fee)
         print(feeFormatted)
         
-        transactionFeeLabel.text = "\(feeFormatted ?? "0.0") ETH"
+        transactionFeeLabel.text = "Fee: \(feeFormatted ?? "0.0") ETH"
         transactionDateLabel.text = loadTransactionDate(timestamp: tx.timeStamp)
     }
     
@@ -87,7 +95,7 @@ extension TransactionTableViewCell {
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         
-        dateFormatter.dateFormat = "dd/MM/yyyy - HH:mm:ss"
+        dateFormatter.dateFormat = "dd/MM/yyyy, HH:mm"
         
         return dateFormatter.string(from: date)
     }

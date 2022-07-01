@@ -131,21 +131,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell", for: indexPath) as! TransactionTableViewCell
+        let transaction = transactions?[indexPath.row]
+        cell.openTransaction(tx: transaction?.hash ?? "")
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? WalletTableViewCell {
-            cell.containerView.backgroundColor = UIColor.rgb(60, 60, 67, 0.05)
-            print("Highlited")
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? WalletTableViewCell {
-            cell.containerView.backgroundColor = UIColor.rgb(60, 60, 67, 0.10)
-            print("Unhighlited")
-        }
     }
 }
