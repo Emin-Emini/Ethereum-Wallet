@@ -9,8 +9,14 @@ import UIKit
 import MaterialComponents.MaterialTextControls_FilledTextFields
 import SwiftKeychainWrapper
 import web3swift
-import HDWalletKit
 import BigInt
+
+struct Web3Wallet {
+    let address: String
+    let data: Data
+    let name: String
+    let isHD: Bool
+}
 
 class SendViewController: UIViewController {
     
@@ -37,6 +43,9 @@ class SendViewController: UIViewController {
     var isFeeCalculated = false
     var gasPrice: BigUInt = 0
     
+    let web3 = Web3.InfuraMainnetWeb3()
+    var keystoreManager: KeystoreManager!
+    
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +58,8 @@ class SendViewController: UIViewController {
         
         setupTextFieldsLayout()
         setupButtons()
+        
+        setupWallet()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -86,11 +97,40 @@ extension SendViewController {
     }
 }
 
+// MARK: - Web3 & KeystoreManager
+extension SendViewController {
+    func setupWallet() {
+        let keychainMnemonicsString = KeychainWrapper.standard.string(forKey: "walletMnemonics")
+        let keychainWalletName = KeychainWrapper.standard.string(forKey: "walletName")
+        let keychainWalletPassword = KeychainWrapper.standard.string(forKey: "spendingPassword")
+        guard let mnemonics = keychainMnemonicsString else { return }
+        guard let name = keychainWalletName else { return }
+        guard let password = keychainWalletPassword else { return }
+        
+        let keystore = try! BIP32Keystore(
+            mnemonics: mnemonics,
+            password: password,
+            mnemonicsPassword: "",
+            language: .english)!
+        
+        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
+        let address = keystore.addresses!.first!.address
+        let wallet = Web3Wallet(address: address, data: keyData, name: name, isHD: true)
+        
+        let data = wallet.data
+        
+        let keystoreDataBIP32 = BIP32Keystore(data)!
+        keystoreManager = KeystoreManager([keystoreDataBIP32])
+        
+        web3.addKeystoreManager(keystoreManager)
+    }
+}
+
 // MARK: - Sign Tx Function
 extension SendViewController {
     func sendTransactiongFlow() {
         if isFeeCalculated {
-            signTransaction2()
+            signTransaction()
         } else {
             calculateFee()
         }
@@ -99,7 +139,7 @@ extension SendViewController {
     func calculateFee() {
         continueButton.setStyle(fillColor: .primaryBlue, title: "CALCULATING FEE", fontSize: 16)
         continueButton.disable()
-        let web3 = Web3.InfuraMainnetWeb3()
+        
         let value: String = amountTextField.text ?? "0.0"
         guard let myAddressString = arrayOfAddresses.first else { return }
         let walletAddress = EthereumAddress(myAddressString)! // Your wallet address
@@ -135,7 +175,7 @@ extension SendViewController {
     func signTransaction() {
         continueButton.setStyle(fillColor: .primaryBlue, title: "SIGNING TRANSACTION", fontSize: 16)
         continueButton.disable()
-        let web3 = Web3.InfuraMainnetWeb3()
+        
         let value: String = amountTextField.text ?? "0.0"
         guard let myAddressString = arrayOfAddresses.first else { return }
         let walletAddress = EthereumAddress(myAddressString)! // Your wallet address
@@ -143,7 +183,11 @@ extension SendViewController {
         let contract = web3.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
         let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
         var options = TransactionOptions.defaultOptions
-        options.value = amount
+        
+        guard let myAmount = amount else { return }
+        print(myAmount)
+        print(walletAddress)
+        options.value = myAmount
         options.from = walletAddress
         options.gasPrice = .automatic
         options.gasLimit = .automatic
@@ -153,30 +197,26 @@ extension SendViewController {
             parameters: [AnyObject](),
             extraData: Data(),
             transactionOptions: options)!
+        
+        print()
+        print("tx.transaction:")
         print(tx.transaction)
+        print("tx.contract:")
+        print(tx.contract)
+        print("tx.transactionOptions:")
+        print(tx.transactionOptions)
+        print()
+        
+        do {
+            try tx.send(password: "testing123", transactionOptions: options)
+            print("Successfuly Sent Transaction")
+            self.showToast(message: "Successfuly Sent Transaction", font: .systemFont(ofSize: 12.0))
+        } catch {
+            print(error)
+            print("Failed to Send Transaction")
+            self.showToast(message: "Failed to Send Transaction \(error)", font: .systemFont(ofSize: 12.0))
+        }
         self.dismiss(animated: true)
-    }
-    
-    func signTransaction2() {
-        guard let amountString = amountTextField.text else { return }
-        guard let address = addressTextField.text else { return }
-        let amount = Int((Double(amountString) ?? 0.0) * ethDivident)
-        
-        print(amount)
-        print(Wei("\(amount)") ?? 0)
-        
-        let signer = EIP155Signer(chainId: 1)
-        let rawTransaction1 = EthereumRawTransaction(
-            value: Wei("\(amount)") ?? 0,
-            to: "\(address)",
-            gasPrice: Int(gasPrice),
-            gasLimit: 21000,
-            nonce: 2
-        )
-        guard let signed = try? signer.hash(rawTransaction: rawTransaction1).toHexString() else { return }
-        print(signed)
-        
-        
     }
 }
 
